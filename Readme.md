@@ -10,7 +10,7 @@ Notes
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * The `foreman start` command (p. 75) is obsolete. Run `heroku local` instead.
 
-The app so far should look like this on Heroku:
+The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
 
 ![ch1](/readme_img/ch1.png)
 
