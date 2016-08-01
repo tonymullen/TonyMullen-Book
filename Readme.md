@@ -12,4 +12,4 @@ Notes
 
 The app so far should look like this on Heroku:
 
-![ch1](/readme_mg/ch1.png)
+![ch1](/readme_img/ch1.png)
