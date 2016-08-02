@@ -5,7 +5,9 @@ module.exports.homelist = function(req, res) {
     pageHeader: {
       title: 'Loc8r',
       strapline: 'Find places to work with wifi near you!'
-    }, locations: [{
+    },
+    sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Have coffee, a sandwich, or a slice of pie while writing code and pushing your commits! Let Lo8r help you find the place you're looking for.",
+    locations: [{
       name: 'Oppenheimer Cafe',
       address: '1500 N Warner St, Tacoma, WA 98416',
       rating: 3,

@@ -1,4 +1,5 @@
 extends layout
+include _includes/sharedHTMLfunctions
 
 block content
   .row
@@ -13,11 +14,7 @@ block content
               h4
                 a(href="/location")= location.name
                 small &nbsp;
-                  span.glyphicon.glyphicon-star
-                  span.glyphicon.glyphicon-star
-                  span.glyphicon.glyphicon-star
-                  span.glyphicon.glyphicon-star-empty
-                  span.glyphicon.glyphicon-star-empty
+                  +outputRating(location.rating)
                 span.badge.pull-right.badg-default= location.distance
               p.address= location.address
               p
@@ -25,4 +22,4 @@ block content
                   span.label.label-warning= facility
                   | &nbsp;
       .col-xs-12.col-sm-4
-        p.lead Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Have coffee, a sandwich, or a slice of pie while writing code and pushing your commits! Let Lo8r help you find the place you're looking for.
+        p.lead= sidebar
