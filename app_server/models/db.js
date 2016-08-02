@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+require('./locations');
 
 var dbURI = 'mongodb://localhost/Loc8r';
 mongoose.connect(dbURI);
