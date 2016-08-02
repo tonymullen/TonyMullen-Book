@@ -12,7 +12,7 @@ While working through the book, you should be doing **regular Git commits** (at 
 
 I strongly recommend you ensure that your code is working before committing it. You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
 
-## Chapter 5
+# Chapter 5
 **Data model with MongoDB and Mongoose**
 
 Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
@@ -29,16 +29,19 @@ Notes
 * During `mongorestore` (p. 155) you may encounter an error like the following:
 
     ```
-        Failed: heroku_7trd9m4t.locations: error creating indexes for heroku_7trd9m4t.locations: createIndex error: exception: unsupported geo index version { 2dsphereIndexVersion : 2dsphereIndexVersion: 3 }, only support versions: [1,2]
+    Failed: heroku_7trd9m4t.locations: error creating indexes for heroku_7trd9m4t.locations: createIndex error: exception: unsupported geo index version { 2dsphereIndexVersion : 2dsphereIndexVersion: 3 }, only support versions: [1,2]
     ```
 
     In order to fix this, edit the `locations.metadata.json` file that was generated in `~/tmp/mongodump/Loc8r/`. Open the file in Atom and change the `2dsphereIndesVersion` value from 3 to 2.
 
     ```
-        {"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Loc8r.locations"},{"v":1,"key":{"coords":"2dsphere"},"name":"coords_2dsphere","ns":"Loc8r.locations","background":true,"2dsphereIndexVersion":2}]}
+    {"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Loc8r.locations"},{"v":1,"key":{"coords":"2dsphere"},"name":"coords_2dsphere","ns":"Loc8r.locations","background":true,"2dsphereIndexVersion":2}]}
     ```
+Nothing has changed in Chapter 5 with the front-end of your application on Heroku, but your mLab control panel should display the locations collection like this:
 
-## Chapter 4
+![ch1](/readme_img/ch5.png)
+
+# Chapter 4
 **A site with Node and Express**
 
 Always include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/) at the beginning of you chapter comments!
@@ -56,7 +59,7 @@ The app now has several pages, you can take a screenshot of any of them. Here no
 
 ![ch1](/readme_img/ch4.png)
 
-## Chapter 3
+# Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
 
