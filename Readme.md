@@ -1,16 +1,33 @@
 # Getting MEAN book project
 
-This is the project described in the book Getting MEAN by Simon Holmes
+This is the project described in the book Getting MEAN by Simon Holmes. Your Readme.md should look something like this.
 
-Your Readme.md should look something like this.
-
-For each chapter you complete, add comments below (in descending order, with latest on top) describing what you did and what challenges or problems you encountered. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Include a screenshot of the Heroku deployment of your application at the time of the commit.
+For each chapter you complete, add comments (in descending order, with latest on top) describing what you did and what challenges or problems you encountered. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Include a screenshot of the up-to-date Heroku deployment of your application at the time of the commit.
 
 Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
 
-While working through the book, you should be doing **regular Git commits** (at least 3 or 4 per chapter, so I can view the specifics of your progress). In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example.
+While working through the book, you should be doing **regular Git commits** (at least 3 or 4 per chapter, so I can view the specifics of your progress). This is done like this (always include a brief but *meaningful* comment):
 
-I strongly recommend you ensure that your code is working before committing it. You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
+```
+git add .
+git commit -m "your comment here"
+```
+
+In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
+
+```
+git push origin master --tags
+```
+
+**Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
+
+# Chapter 6
+**Setting up the RESTful API**
+
+Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+
+Notes:
+* Listing 6.1 should be named `index.js` rather than `locations.js`.
 
 # Chapter 5
 **Data model with MongoDB and Mongoose**
@@ -37,7 +54,7 @@ Notes
     ```
     {"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Loc8r.locations"},{"v":1,"key":{"coords":"2dsphere"},"name":"coords_2dsphere","ns":"Loc8r.locations","background":true,"2dsphereIndexVersion":2}]}
     ```
-Nothing has changed in Chapter 5 with the front-end of your application on Heroku, but your mLab control panel should display the locations collection like this:
+Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this:
 
 ![ch1](/readme_img/ch5.png)
 
@@ -73,24 +90,4 @@ The app so far should look like this on Heroku (include a screenshot with each c
 
 ### Markdown
 
-The following code shows how this Readme file was written in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (`.md`) language.
-
-    # Getting MEAN book project
-
-    This is the project described in the book Getting MEAN by Simon Holmes
-
-    ## Chapter 3
-
-    Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
-
-    Notes
-    * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
-    * The `foreman start` command (p. 75) is obsolete. Run `heroku local` instead.
-
-    The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
-
-    ![ch1](/readme_img/ch1.png)
-
-    ### Markdown
-
-    The following code shows how this Readme file was written in the [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (`.md`) language.
+This Readme file was written in the (GitHub Flavored) [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (`.md`) language. Look a this Readme in "raw" view to see the code.
