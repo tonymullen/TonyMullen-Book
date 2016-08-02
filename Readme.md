@@ -10,7 +10,7 @@ Scroll to the bottom of this Readme.md to see some tips on how to use the Markdo
 
 While working through the book, you should be doing **regular Git commits** (at least 3 or 4 per chapter, so I can view the specifics of your progress). In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example.
 
-I strongly recommend you ensure that your code is working before committing it. You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly. 
+I strongly recommend you ensure that your code is working before committing it. You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
 
 ## Chapter 4
 
@@ -22,6 +22,10 @@ Notes
 * Pay attention to indentation for Jade files. Wrongly indented Jade/Bootstrap will mess up the layout of your pages.
 * I did not have the overlap issue shown on page 93. Consequently, I removed the `.row.page-header` line from the Jade views introduced later in the chapter, which moved the content down a row.  
 
+The app now has several pages, you can take a screenshot of any of them. Here notice that the map displays the location of Oppenheimer Cafe:
+
+![ch1](/readme_img/ch4.png)
+
 ## Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
@@ -32,7 +36,7 @@ Notes
 
 The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
 
-![ch1](/readme_img/ch1.png)
+![ch1](/readme_img/ch3.png)
 
 ### Markdown
 
