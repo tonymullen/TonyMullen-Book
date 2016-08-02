@@ -21,6 +21,7 @@ For this chapter, you will make some small changes and diverge slightly from the
 Notes
 * Pay attention to indentation for Jade files. Wrongly indented Jade/Bootstrap will mess up the layout of your pages.
 * I did not have the overlap issue shown on page 93. Consequently, I removed the `.row.page-header` line from the Jade views introduced later in the chapter, which moved the content down a row.  
+* This chapter work includes the wrapping up process described in Appendix C. 
 
 The app now has several pages, you can take a screenshot of any of them. Here notice that the map displays the location of Oppenheimer Cafe:
 
