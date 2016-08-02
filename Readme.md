@@ -28,6 +28,7 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 
 Notes:
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
+* The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
 
 # Chapter 5
 **Data model with MongoDB and Mongoose**
