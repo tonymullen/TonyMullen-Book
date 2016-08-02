@@ -2,6 +2,12 @@
 
 This is the project described in the book Getting MEAN by Simon Holmes
 
+
+## Chapter 4
+
+Notes
+* Pay attention to indentation for Jade files. Wrongly indented Jade/Bootstrap will mess up the layout of your pages. 
+
 ## Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
