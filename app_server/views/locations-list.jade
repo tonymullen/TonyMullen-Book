@@ -14,7 +14,7 @@ block content
             h4
               a(href="/location/{{ location._id }}") {{ location.name }}
               small {{ location.rating }}
-              span.badge.pull-right.badge-default {{ location.distance }}
+              span.badge.pull-right.badge-default {{ location.distance | formatDistance }}
             p.address {{ location.address }}
             p
               span.label.label-warning.label-facility(ng-repeat="facility in location.facilities")

@@ -20,38 +20,11 @@ var renderHomepage = function(req, res) {
 /* GET 'home' page */
 module.exports.homelist = function(req, res) {
   renderHomepage(req, res);
-  /*
-  var requestOptions, path;
-  path = '/api/locations';
-  requestOptions = {
-    url: apiOptions.server + path,
-    method: "GET",
-    json: {},
-    qs: {
-      lng : -117.9143936,
-      lat : 33.812901,
-      maxDistance : 20000
-    }
-  };
-  request (
-    requestOptions,
-    function(err, response, body) {
-      var i, data;
-      data = body;
-      if (response.statusCode === 200 && data.length){
-        for (i = 0; i < data.length; i++) {
-          data[i].distance = _formatDistance(data[i].distance);
-        }
-      }
-      renderHomepage(req, res, data);
-    }
-  );
-  */
 };
 
 var _formatDistance = function(distance) {
   var numDistance, unit;
-  if (distance => 1000) {
+  if (distance >= 1000) {
     numDistance = parseFloat((distance/1000).toFixed(1));
     unit = ' km';
   } else {
