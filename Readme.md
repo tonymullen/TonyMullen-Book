@@ -30,6 +30,11 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 Notes:
 * As mentioned in Ch 6 notes, distances are expressed in meters. You will need to alter the `_formatDistance` function accordingly to format them properly.
 * On p. 217, the reference to locations.js in the /routes folder should refer to index.js.
+* At the bottom of p. 235, the code referenced is from app_api/controllers/reviews.js, not locations.js.
+* The necessary ID tag for jQuery browser validation described on p. 240 is not present in the author's code online and it's not shown how to put it into the view. To make this work add the `#addReview` tag to the `form` element like this:
+    ```
+    form#addReview.form-horizontal(action="", method="post", role="form")
+    ``` 
 
 # Chapter 6
 **Setting up the RESTful API**

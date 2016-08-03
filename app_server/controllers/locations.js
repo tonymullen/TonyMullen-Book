@@ -127,7 +127,8 @@ var renderReviewForm = function(req, res, locDetail) {
       title: 'Review ' + locDetail.name + ' on Loc8r',
       pageHeader: {
           title: 'Review ' + locDetail.name
-      }
+      },
+      error: req.query.err
   });
 };
 

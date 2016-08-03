@@ -15,7 +15,7 @@ module.exports.locationsListByDistance = function (req, res) {
     num: 10
   };
   if (!lng && lng !== 0 || !lat && lat !==0) {
-    sendJsonResponse(res, 404, {
+    sendJSONresponse(res, 404, {
       "message": "lng and lat query parameters are required"
     });
     return;
@@ -32,7 +32,7 @@ module.exports.locationsListByDistance = function (req, res) {
           _id: doc.obj._id
       });
     });
-    sendJsonResponse(res, 200, locations);
+    sendJSONresponse(res, 200, locations);
   });
 };
 
@@ -60,9 +60,9 @@ module.exports.locationsCreate = function (req, res) {
     }]
   }, function(err, location) {
     if (err) {
-      sendJsonResponse(res, 400, err);
+      sendJSONresponse(res, 400, err);
     } else {
-      sendJsonResponse(res, 201, location);
+      sendJSONresponse(res, 201, location);
     }
   })
 };
@@ -74,18 +74,18 @@ module.exports.locationsReadOne = function (req, res) {
       .findById(req.params.locationid)
       .exec(function(err, location) {
         if(!location) {
-          sendJsonResponse(res, 404, {
+          sendJSONresponse(res, 404, {
             "message": "locationid not found"
           });
           return;
         } else if (err) {
-          sendJsonResponse(res, 404, err);
+          sendJSONresponse(res, 404, err);
           return;
         }
-        sendJsonResponse(res, 200, location);
+        sendJSONresponse(res, 200, location);
       });
     } else {
-      sendJsonResponse(res, 404, {
+      sendJSONresponse(res, 404, {
         "messsage": "No locationid in request"
       })
     }
@@ -163,7 +163,7 @@ module.exports.locationsDeleteOne = function(req, res) {
   }
 };
 
-var sendJsonResponse = function(res, status, content) {
+var sendJSONresponse = function(res, status, content) {
   res.status(status);
   res.json(content);
 }
