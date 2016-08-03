@@ -21,8 +21,17 @@ git push origin master --tags
 
 **Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
 
+This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases.
 
-# Chapter 7
+# <a name="ch8"></a>Chapter 8
+**Adding Angular components to the Express application**
+
+Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+
+Notes:
+
+
+# <a name="ch7"></a>Chapter 7
 **Using the REST API**
 
 Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
@@ -41,7 +50,7 @@ If your form validation is working properly, trying to submit an empty review fo
 ![ch7](/readme_images/ch7-val.png)
 
 
-# Chapter 6
+# <a name="ch6"></a>Chapter 6
 **Setting up the RESTful API**
 
 Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
@@ -56,7 +65,7 @@ Nothing has changed in on the Heroku app front-end. You should have successfully
 
 ![ch6](/readme_images/ch6-post.png)
 
-# Chapter 5
+# <a name="ch5"></a>Chapter 5
 **Data model with MongoDB and Mongoose**
 
 Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
@@ -86,7 +95,7 @@ Nothing has changed in Chapter 5 with the front-end of your application on Herok
 
 ![ch5](/readme_images/ch5.png)
 
-# Chapter 4
+# <a name="ch4"></a>Chapter 4
 **A site with Node and Express**
 
 Always include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/) at the beginning of you chapter comments!
@@ -111,7 +120,7 @@ The app now has several pages. Include a screenshot of the location info page (w
 
 ![ch4](/readme_images/ch4.png)
 
-# Chapter 3
+# <a name="ch3"></a>Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
 
