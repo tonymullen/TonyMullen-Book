@@ -6,30 +6,21 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "https://warm-plateau-96144.herokuapp.com/";
 }
 
-var renderHomepage = function(req, res, responseBody) {
-  var message;
-  if(!(responseBody instanceof Array)) {
-    message = "API lookup error";
-    responseBody = [];
-  } else {
-    if (!responseBody.length) {
-      message = "No places found nearby";
-    }
-  }
+var renderHomepage = function(req, res) {
   res.render('locations-list', {
     title: 'Loc8r - find a place to work with wifi',
     pageHeader: {
       title: 'Loc8r',
       strapline: 'Find places to work with wifi near you!'
     },
-    sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Have coffee, a sandwich, or a slice of pie while writing code and pushing your commits! Let Lo8r help you find the place you're looking for.",
-    locations: responseBody,
-    message: message
+    sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Have coffee, a sandwich, or a slice of pie while writing code and pushing your commits! Let Lo8r help you find the place you're looking for."
   });
 };
 
 /* GET 'home' page */
 module.exports.homelist = function(req, res) {
+  renderHomepage(req, res);
+  /*
   var requestOptions, path;
   path = '/api/locations';
   requestOptions = {
@@ -55,6 +46,7 @@ module.exports.homelist = function(req, res) {
       renderHomepage(req, res, data);
     }
   );
+  */
 };
 
 var _formatDistance = function(distance) {
