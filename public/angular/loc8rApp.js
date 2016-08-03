@@ -28,7 +28,6 @@ var formatDistance = function() {
     var numDistance, unit;
     if (distance && _isNumeric(distance)) {
       if (distance >= 1000) {
-        console.log(distance);
         numDistance = parseFloat((distance/1000).toFixed(1));
         unit = ' km';
       } else {
@@ -42,7 +41,17 @@ var formatDistance = function() {
   };
 };
 
+var ratingStars = function() {
+  return {
+    scope: {
+      thisRating: '=rating'
+    },
+    templateUrl: '/angular/rating-stars.html'
+  };
+};
+
 angular
   .module('loc8rApp')
   .controller('locationListCtrl', locationListCtrl)
-  .filter('formatDistance', formatDistance);
+  .filter('formatDistance', formatDistance)
+  .directive('ratingStars', ratingStars);
