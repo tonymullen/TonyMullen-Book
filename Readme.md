@@ -28,7 +28,7 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 
 Notes:
 * As mentioned in Ch 6 notes, distances are expressed in meters. You will need to alter the `_formatDistance` function accordingly to format them properly.
-
+* On p. 217, the reference to locations.js in the /routes folder should refer to index.js.
 
 # Chapter 6
 **Setting up the RESTful API**

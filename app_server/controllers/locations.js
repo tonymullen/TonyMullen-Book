@@ -69,53 +69,41 @@ var _formatDistance = function(distance) {
   return numDistance + unit;
 }
 
+var renderDetailPage = function(req, res, locDetail) {
+  res.render('location-info', {
+      title: locDetail.name,
+      pageHeader: {
+          title: locDetail.name
+      },
+      sidebar: {
+          context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
+          callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
+      },
+      location: locDetail
+  });
+};
+
 /* GET 'Location info' page */
 module.exports.locationInfo = function(req, res) {
-    res.render('location-info', {
-        title: 'Oppenheimer Cafe',
-        pageHeader: {
-            title: 'Oppenheimer Cafe'
-        },
-        sidebar: {
-            context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
-            callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
-        },
-        location: {
-            name: 'Oppenheimer Cafe',
-            address: '1500 N Warner St, Tacoma, WA 98416',
-            rating: 3,
-            facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-            coords: {
-                lat: 33.8121,
-                lng: -117.9190
-            },
-            openingTimes: [{
-                days: 'Monday - Friday',
-                opening: '7:00am',
-                closing: '7:00pm',
-                closed: false
-            }, {
-                days: 'Saturday',
-                opening: '8:00am',
-                closing: '5:00pm',
-                closed: false
-            }, {
-                days: 'Sunday',
-                closed: true
-            }],
-            reviews: [{
-                author: 'Simon Holmes',
-                rating: 5,
-                timestamp: '16 July 2013',
-                reviewText: 'What a great place. I can\'t say enough good things about it.'
-            }, {
-                author: 'Bob Ross',
-                rating: 3,
-                timestamp: '16 June 2013',
-                reviewText: 'Long lines for the rides, otherwise pretty happy place.'
-            }]
-        }
-    });
+  var requestOptions, path;
+  path = "/api/locations/" + req.params.locationid;
+  requestOptions = {
+    url : apiOptions.server + path,
+    method : "GET",
+    json : {}
+  };
+  request (
+    requestOptions,
+    function(err, response, body) {
+      console.log(body);
+      var data = body;
+      data.coords = {
+        lng : body.coords[0],
+        lat : body.coords[1]
+      }
+      renderDetailPage(req, res, data);
+    }
+  );
 };
 
 /* GET 'Add review' page */
