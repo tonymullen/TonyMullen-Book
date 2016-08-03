@@ -21,6 +21,15 @@ git push origin master --tags
 
 **Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
 
+# Chapter 7
+**Consuming a RESTful API**
+
+Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+
+Notes:
+* As mentioned in Ch 6 notes, distances are expressed in meters. You will need to alter the `_formatDistance` function accordingly to format them properly.
+
+
 # Chapter 6
 **Setting up the RESTful API**
 
