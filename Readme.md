@@ -31,6 +31,11 @@ Notes:
 * The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
 * Contrary to the discussion on p. 182-183, MongoDB carries out geoNear calculations in meters, rather than radians. For this reason the `theEarth` function described in the top half of p. 183 should be ignored. Calls to this function with km arguments, such as the `maxDistance: theEarth.getRadsFromDistance(20),` line near the bottom of p. 183 should be replaced by the equivalent value in meters, so in this example the code should be `maxDistance: 20000,`. The same goes for anywhere else that function is used in the text.
 
+
+Nothing has changed in on the Heroku app front-end. You should have successfully managed to use Postman to call RESTful methods on your local database. Add a screenshot showing a successful POST method call which adds a new location, similar to this one (if necessary, you can include more than one screenshot to show both the request body and the response):
+
+![ch1](/readme_img/ch6-post.png)
+
 # Chapter 5
 **Data model with MongoDB and Mongoose**
 
@@ -60,6 +65,8 @@ Notes
 Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this:
 
 ![ch1](/readme_img/ch5.png)
+
+Add a screenshot similar to this one to your Readme.
 
 # Chapter 4
 **A site with Node and Express**
@@ -93,4 +100,4 @@ The app so far should look like this on Heroku (include a screenshot with each c
 
 ### Markdown
 
-This Readme file was written in the (GitHub Flavored) [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (`.md`) language. Look a this Readme in "raw" view to see the code.
+This Readme file was written in the (GitHub Flavored) [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) (`.md`) language. Look at this Readme in "raw" view to see the code.
