@@ -1,5 +1,12 @@
-/* GET 'home' page */
-module.exports.homelist = function(req, res) {
+var request = require('request');
+var apiOptions = {
+  server : "http://localhost:3000"
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "https://warm-plateau-96144.herokuapp.com/";
+}
+
+var renderHomepage = function(req, res, responseBody) {
   res.render('locations-list', {
     title: 'Loc8r - find a place to work with wifi',
     pageHeader: {
@@ -7,27 +14,30 @@ module.exports.homelist = function(req, res) {
       strapline: 'Find places to work with wifi near you!'
     },
     sidebar: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Have coffee, a sandwich, or a slice of pie while writing code and pushing your commits! Let Lo8r help you find the place you're looking for.",
-    locations: [{
-      name: 'Oppenheimer Cafe',
-      address: '1500 N Warner St, Tacoma, WA 98416',
-      rating: 3,
-      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-      distance: '200m'
-    }, {
-      name: 'Cafe Hero',
-      address: '11223 High Street, Tacoma, WA, 98407',
-      rating: 4,
-      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-      distance: '200m'
-    }, {
-      name: 'Cafe de Couture',
-      address: '11224 Lowe Street, Tacoma, WA, 98407',
-      rating: 2,
-      facilities: ['Hot drinks', 'Premium wifi'],
-      distance: '240m'
-    }
-  ]
+    locations: responseBody
   });
+};
+
+/* GET 'home' page */
+module.exports.homelist = function(req, res) {
+  var requestOptions, path;
+  path = '/api/locations';
+  requestOptions = {
+    url: apiOptions.server + path,
+    method: "GET",
+    json: {},
+    qs: {
+      lng : -117.9143936,
+      lat : 33.812901,
+      maxDistance : 20000
+    }
+  };
+  request (
+    requestOptions,
+    function(err, response, body) {
+      renderHomepage(req, res, body);
+    }
+  );
 };
 
 /* GET 'Location info' page */

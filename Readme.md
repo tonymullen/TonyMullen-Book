@@ -62,11 +62,9 @@ Notes
     {"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Loc8r.locations"},{"v":1,"key":{"coords":"2dsphere"},"name":"coords_2dsphere","ns":"Loc8r.locations","background":true,"2dsphereIndexVersion":2}]}
     ```
 
-Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this:
+Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this (Add a screenshot similar to this one to your Readme):
 
 ![ch1](/readme_img/ch5.png)
-
-Add a screenshot similar to this one to your Readme.
 
 # Chapter 4
 **A site with Node and Express**
