@@ -38,7 +38,7 @@ Notes:
 
 If your form validation is working properly, trying to submit an empty review form will result in an error message as shown in the screenshot below. Include a screenshot of this behavior in your own application:
 
-![ch7](/readme_img/ch7-val.png)
+![ch7](/readme_images/ch7-val.png)
 
 
 # Chapter 6
@@ -54,7 +54,7 @@ Notes:
 
 Nothing has changed in on the Heroku app front-end. You should have successfully managed to use Postman to call RESTful methods on your local database. Add a screenshot showing a successful POST method call which adds a new location, similar to this one (if necessary, you can include more than one screenshot to show both the request body and the response):
 
-![ch6](/readme_img/ch6-post.png)
+![ch6](/readme_images/ch6-post.png)
 
 # Chapter 5
 **Data model with MongoDB and Mongoose**
@@ -84,7 +84,7 @@ Notes
 
 Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this (Add a screenshot similar to this one to your Readme):
 
-![ch5](/readme_img/ch5.png)
+![ch5](/readme_images/ch5.png)
 
 # Chapter 4
 **A site with Node and Express**
@@ -109,7 +109,7 @@ http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=1
 
 The app now has several pages. Include a screenshot of the location info page (with the map). Here notice that the map displays the location of Oppenheimer Cafe:
 
-![ch4](/readme_img/ch4.png)
+![ch4](/readme_images/ch4.png)
 
 # Chapter 3
 
@@ -121,7 +121,7 @@ Notes
 
 The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
 
-![ch3](/readme_img/ch3.png)
+![ch3](/readme_images/ch3.png)
 
 ### Markdown
 
