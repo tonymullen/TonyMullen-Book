@@ -29,6 +29,7 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 Notes:
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
 * The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
+* Contrary to the discussion on p. 182-183, MongoDB carries out geoNear calculations in meters, rather than radians. For this reason the `theEarth` function described in the top half of p. 183 should be ignored. Calls to this function with km arguments, such as the `maxDistance: theEarth.getRadsFromDistance(20),` line near the bottom of p. 183 should be replaced by the equivalent value in meters, so in this example the code should be `maxDistance: 20000,`. The same goes for anywhere else that function is used in the text. 
 
 # Chapter 5
 **Data model with MongoDB and Mongoose**
