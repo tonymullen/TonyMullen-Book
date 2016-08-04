@@ -45,7 +45,6 @@ var getLocationInfo = function (req, res, callback) {
   request(
     requestOptions,
     function(err, response, body) {
-      console.log(body);
       var data = body;
       if (response.statusCode === 200) {
         data.coords = {
@@ -94,7 +93,8 @@ var renderReviewForm = function(req, res, locDetail) {
       pageHeader: {
           title: 'Review ' + locDetail.name
       },
-      error: req.query.err
+      error: req.query.err,
+      url: req.originalUrl
   });
 };
 

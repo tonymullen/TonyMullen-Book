@@ -5,13 +5,14 @@ var Loc = mongoose.model('Location');
 module.exports.locationsListByDistance = function (req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
+  var maxDist = parseFloat(req.query.maxDistance);
   var point = {
     type: "Point",
     coordinates: [lng, lat]
   };
   var geoOptions = {
     spherical: true,
-    maxDistance: 2000,
+    maxDistance: maxDist,
     num: 10
   };
   if (!lng && lng !== 0 || !lat && lat !==0) {
