@@ -32,7 +32,7 @@ Notes:
 * Since the book was written, there have been some changes in the automatically generated (by Express) app.js file, so the edits described on p. 307 are slightly different from what you need to actually do. Instead of commenting out `require('./routes')(app)` you must comment out two lines, `var routes = require('./app_server/routes/index');` (somewhere around line 11) and `app.use('/', routes);` (somewhere around line 52). Add the new `app.use` code from the book somewhere *below* the `app.use('/api', routesApi);` line in the code.
 * In the code for setting HTML5 mode on p. 313-314, instead of `$locationProvider.html5Mode(true);` the line should be `$locationProvider.html5Mode({enabled: true, requireBase: false});`.
 * P. 316 refers to app_server/controllers/main.js. It appears that this should refer to app_erver/controllers/others.js.
-
+* Remember to include your Google API key in the query string for the map image, as mentioned in the Chapter 5 notes. 
 
 # <a name="ch9"></a>Chapter 9
 **Building an Angular SPA**
