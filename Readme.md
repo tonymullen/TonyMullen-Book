@@ -28,6 +28,12 @@ This Readme has been modified throughout the process of implementing the project
 
 Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 
+There do not seem to be any issues or sticky points in Chapter 9.
+
+Include a screenshot of the top page of your application at this point. It should look something like this:
+
+![ch9](/readme_images/ch9.png)
+
 # <a name="ch8"></a>Chapter 8
 **Adding Angular components to the Express application**
 
@@ -39,7 +45,7 @@ Notes:
 
 Include a screenshot of the filtering functionality in action, as shown here:
 
-![ch7](/readme_images/ch8.png)
+![ch8](/readme_images/ch8.png)
 
 # <a name="ch7"></a>Chapter 7
 **Using the REST API**
