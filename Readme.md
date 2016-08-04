@@ -23,6 +23,11 @@ git push origin master --tags
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases.
 
+# <a name="ch9"></a>Chapter 9
+**Building an Angular SPA**
+
+Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+
 # <a name="ch8"></a>Chapter 8
 **Adding Angular components to the Express application**
 
