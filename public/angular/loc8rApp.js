@@ -1,7 +1,7 @@
 angular.module('loc8rApp', []);
 
 var locationListCtrl = function ($scope, loc8rData, geolocation) {
-  $scope.message = "Checkng your location";
+  $scope.message = "Checking your location";
   $scope.getData = function(position) {
     var lat = position.coords.latitude,
         lng = position.coords.longitude;

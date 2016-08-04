@@ -30,6 +30,11 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 
 Notes:
 
+* As of this writing, geolocation in Chrome appears to be (temporarily?) broken. I'm seeing an identical issue to what was discussed [here](https://www.reddit.com/r/webdev/comments/3j8ipj/anyone_else_had_issues_with_the_html5_geolocation/) some time ago. If you experience this, test your application in Firefox, Safari, and/or IE instead of Chrome and turn in a screenshot using one of those browsers.
+
+Include a screenshot of the filtering functionality in action, as shown here:
+
+![ch7](/readme_images/ch8.png)
 
 # <a name="ch7"></a>Chapter 7
 **Using the REST API**
