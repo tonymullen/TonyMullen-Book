@@ -6,35 +6,7 @@
     <link rel="stylesheet" href="/bootstrap/css/amelia.bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
-<body>
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header"><a href="/" class="navbar-brand">Loc8r</a>
-        <button type="button" data-toggle="collapse" data-target="#navbar-main" class="navbar-toggle">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="navbar-main" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/#about">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div ng-view>
-    </div>
-    <footer>
-      <div class="row">
-        <div class="col-xs-12">
-          <small>&copy; Simon Holmes 2014</small>
-        </div>
-      </div>
-    </footer>
-  </div>
-
+  <body ng-view>
     <script src="/angular/angular.min.js"></script>
     <script src="/lib/angular-route.min.js"></script>
     <script src="/lib/angular-sanitize.min.js"></script>
