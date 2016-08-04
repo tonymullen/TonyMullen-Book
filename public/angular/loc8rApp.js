@@ -1,24 +1,20 @@
 angular.module('loc8rApp', []);
 
-var locationListCtrl = function ($scope) {
-  $scope.data = {
-    locations: [{
-      name: 'Burger Queen',
-      address: '5555 155th Pl, Tacoma, WA',
-      rating: 2,
-      facilities: ['Burgers', 'WiFi'],
-      distance: '5000',
-      _id: '57a0610c0bf8a6e189319x2g'
-    },{
-      name: 'The Spot',
-      address: '5556 155th Pl, Tacoma, WA',
-      rating: 2,
-      facilities: ['Food', 'WiFi'],
-      distance: '500',
-      _id: '57a0610c0bf8a6e189319x2g'
-    }]
-  };
-}
+var locationListCtrl = function ($scope, loc8rData) {
+  loc8rData
+    .success(function(data) {
+      $scope.data = { locations: data };
+    })
+    .error(function(e) {
+      console.log(e);
+    });
+};
+
+var loc8rData = function($http) {
+  //-117.9143936,
+  //33.812901
+  return $http.get('/api/locations?lng=-117.9143936&lat=33.812901&maxDistance=2000');
+};
 
 var _isNumeric = function(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -54,4 +50,5 @@ angular
   .module('loc8rApp')
   .controller('locationListCtrl', locationListCtrl)
   .filter('formatDistance', formatDistance)
-  .directive('ratingStars', ratingStars);
+  .directive('ratingStars', ratingStars)
+  .service('loc8rData', loc8rData);

@@ -45,6 +45,7 @@ var getLocationInfo = function (req, res, callback) {
   request(
     requestOptions,
     function(err, response, body) {
+      console.log(body);
       var data = body;
       if (response.statusCode === 200) {
         data.coords = {
