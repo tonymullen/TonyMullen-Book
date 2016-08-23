@@ -2,16 +2,24 @@
 
 This is the project described in the book Getting MEAN by Simon Holmes. Your Readme.md should look something like this.
 
-For each chapter, describe in your own words (>= 80 words) what functionality you implemented and how it works, and list any challenges or problems you encountered. Add your chapter comments (in descending order, with latest on top). If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Finally, include a screenshot of the up-to-date Heroku deployment of your application at the time of the commit (the screenshot(s) must *also* be uploaded to Moodle by the assignment deadline).
+For each chapter, add a note with the following:
+* a discription in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
+* a screenshot of the current state of your work (see my chapter notes for each chapter for specifics on what you should include in the screenshot).
 
-Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
+Add your chapter notes in descending order, with the latest on top, as I've done below. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
 
-While working through the book, you should be doing **regular Git commits** (at least 3 or 4 per chapter, so I can view the specifics of your progress). This is done like this (always include a brief but *meaningful* comment):
+**The screenshot(s) must also be uploaded to Moodle** by the appropriate assignment deadline.
+
+### Git commits
+
+While working through the book, you should be doing **regular Git commits** (at least 4 per chapter) so I can view the specifics of your progress. This is done like this:
 
 ```
 git add .
 git commit -m "your comment here"
 ```
+
+Always include a brief but *meaningful* comment. Do not make comments like "blahblah" or "some stuff". [Here's some good advice on commit messages](http://chris.beams.io/posts/git-commit/). 
 
 In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
 
