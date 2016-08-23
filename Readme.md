@@ -2,7 +2,7 @@
 
 This is the project described in the book Getting MEAN by Simon Holmes. Your Readme.md should look something like this.
 
-For each chapter you complete, add comments (in descending order, with latest on top) describing what you did and what challenges or problems you encountered. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Include a screenshot of the up-to-date Heroku deployment of your application at the time of the commit.
+For each chapter, describe in your own words (>= 80 words) what functionality you implemented and how it works, and list any challenges or problems you encountered. Add your chapter comments (in descending order, with latest on top). If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Finally, include a screenshot of the up-to-date Heroku deployment of your application at the time of the commit (the screenshot(s) must *also* be uploaded to Moodle by the assignment deadline).
 
 Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
 
