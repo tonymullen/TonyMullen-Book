@@ -1,5 +1,10 @@
 # Getting MEAN book project
 
+Here are some changes
+* Change one
+* Change two
+* Change 3
+
 This is the project described in the book Getting MEAN by Simon Holmes. Your Readme.md should look something approximately like this one.
 
 For each chapter, add a note with the following:
