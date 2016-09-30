@@ -100,6 +100,7 @@ Notes:
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
 * The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
 * Contrary to the discussion on p. 182-183, MongoDB carries out geoNear calculations in meters, rather than radians. For this reason the `theEarth` function described in the top half of p. 183 should be ignored. Calls to this function with km arguments, such as the `maxDistance: theEarth.getRadsFromDistance(20),` line near the bottom of p. 183 should be replaced by the equivalent value in meters, so in this example the code should be `maxDistance: 20000,`. The same goes for anywhere else that function is used in the text.
+* The `x-www-form-urlencoded` POST form data in your request from Postman described on page 190 (Figure 6.11) is very sensitive to whitespace. **Make sure that your key values suchas `name`, `address` etc do not have any trailing spaces.**
 
 
 Nothing has changed in on the Heroku app front-end. You should have successfully managed to use Postman to call RESTful methods on your local database. Add a screenshot showing a successful POST method call which adds a new location, similar to this one (if necessary, you can include more than one screenshot to show both the request body and the response):
@@ -114,7 +115,7 @@ Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
 For Chapter 5, you will be adding some locations to your database. You'll use these locations throughout the project. In addition to adding Oppenheimer Cafe, add at least 3 more locations that are physically nearby (within a couple of miles of) the university, and one location which is more than 20 miles away. These should be real places, **with real longitude and latitude values**. Later, when you implement the location aware functionality of the application, you will check to see that these locations show up as expected.
 
 Notes
-* The default interface for the Mongo command line seems to have changed slightly. Specifically, empty databases are not shown when `show dbs` is called, and the amount of memory listed for the empty databases is 0.000GB rather than what is shown in the book on page 149. You won't see your new Loc8r database listed until after you carry out the `db.locations.save()` instructions later on the page. After that, your database should be listed as expected. 
+* The default interface for the Mongo command line seems to have changed slightly. Specifically, empty databases are not shown when `show dbs` is called, and the amount of memory listed for the empty databases is 0.000GB rather than what is shown in the book on page 149. You won't see your new Loc8r database listed until after you carry out the `db.locations.save()` instructions later on the page. After that, your database should be listed as expected.
 * On page 151, about the middle of the page, the `id` attribute listed should be `_id`. Missing the underscore here will not cause immediate problems, but it will cause problems later.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robomongo](https://robomongo.org/) GUI-based MongoDB client.
 * MongoLab (p. 152) is now [mLab](http://docs.mlab.com/).
