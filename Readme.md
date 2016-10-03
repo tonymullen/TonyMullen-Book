@@ -42,7 +42,7 @@ Notes:
 * P. 316 refers to app_server/controllers/main.js. It appears that this should refer to app_server/controllers/others.js.
 * Remember to include your Google API key in the query string for the map image, as mentioned in the Chapter 5 notes.
 * The `$modal` component of Angular Bootstrap (introduced on p. 331) and the `$modalInstance` component (introduced on p. 335) are now called `$uibModal` and `$uibModalInstance`, respectively. These need to be replaced any time they appear in the code.
-* The validation method on p. 339 is redundant if the name and review fields have `required` values in the HTML, and the submission won't be processed if they aren't filled in. You can see the validation in action by leaving the number rating blank and puttint values in the name and review fields, or by removing the `required` tag on those fields.
+* The validation method on p. 339 is redundant if the name and review fields have `required` values in the HTML, and the submission won't be processed if they aren't filled in. You can see the validation in action by leaving the number rating blank and putting values in the name and review fields, or by removing the `required` tag on those fields.
 
 
 Include a screenshot of your application with the modal window open and the validation warning (for unselected rating number) displaying, like this:
