@@ -34,7 +34,7 @@ This Readme has been modified throughout the process of implementing the project
 # <a name="ch10"></a>Chapter 10
 **Building out the SPA**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 Notes:
 * Since the book was written, there have been some changes in the automatically generated (by Express) app.js file, so the edits described on p. 307 are slightly different from what you need to actually do. Instead of commenting out `require('./routes')(app)` you must comment out two lines, `var routes = require('./app_server/routes/index');` (somewhere around line 11) and `app.use('/', routes);` (somewhere around line 52). Add the new `app.use` code from the book somewhere *below* the `app.use('/api', routesApi);` line in the code.
@@ -52,7 +52,7 @@ Include a screenshot of your application with the modal window open and the vali
 # <a name="ch9"></a>Chapter 9
 **Building an Angular SPA**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 There do not seem to be any issues or sticky points in Chapter 9.
 
@@ -63,7 +63,7 @@ Include a screenshot of the top page of your application at this point. It shoul
 # <a name="ch8"></a>Chapter 8
 **Adding Angular components to the Express application**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 Notes:
 * As of this writing, geolocation in Chrome appears to be (temporarily?) broken. I'm seeing an identical issue to what was discussed [here](https://www.reddit.com/r/webdev/comments/3j8ipj/anyone_else_had_issues_with_the_html5_geolocation/) some time ago. If you experience this, test your application in Firefox, Safari, and/or IE instead of Chrome and turn in a screenshot using one of those browsers.
@@ -75,7 +75,7 @@ Include a screenshot of the filtering functionality in action, as shown here:
 # <a name="ch7"></a>Chapter 7
 **Using the REST API**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 Notes:
 * As mentioned in Ch 6 notes, distances are expressed in meters. You will need to alter the `_formatDistance` function accordingly to format them properly.
@@ -94,7 +94,7 @@ If your form validation is working properly, trying to submit an empty review fo
 # <a name="ch6"></a>Chapter 6
 **Setting up the RESTful API**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 Notes:
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
@@ -110,7 +110,7 @@ Nothing has changed in on the Heroku app front-end. You should have successfully
 # <a name="ch5"></a>Chapter 5
 **Data model with MongoDB and Mongoose**
 
-Heroku link: [Heroku app](https://warm-plateau-96144.herokuapp.com/).
+Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
 For Chapter 5, you will be adding some locations to your database. You'll use these locations throughout the project. In addition to adding Oppenheimer Cafe, add at least 3 more locations that are physically nearby (within a couple of miles of) the university, and one location which is more than 20 miles away. These should be real places, **with real longitude and latitude values**. Later, when you implement the location aware functionality of the application, you will check to see that these locations show up as expected.
 
@@ -141,7 +141,7 @@ Nothing has changed in Chapter 5 with the front-end of your application on Herok
 # <a name="ch4"></a>Chapter 4
 **A site with Node and Express**
 
-Always include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/) at the beginning of you chapter comments!
+Always include the link to the [Heroku app](https://getting-mean-book-tm.herokuapp.com/) at the beginning of you chapter comments!
 
 For this chapter, you will make some small changes and diverge slightly from the book project. Rather than using the 'Starcups' example in Reading, England, you'll use 'Oppenheimer Cafe'. Change the longitude and latitude values of the location appropriately so that the display image shows the correct location.
 
@@ -165,7 +165,7 @@ The app now has several pages. Include a screenshot of the location info page (w
 
 # <a name="ch3"></a>Chapter 3
 
-Don't forget to include the link to the [Heroku app](https://warm-plateau-96144.herokuapp.com/)!
+Don't forget to include the link to the [Heroku app](https://getting-mean-book-tm.herokuapp.com/)!
 
 Notes
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
