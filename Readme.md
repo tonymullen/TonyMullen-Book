@@ -115,13 +115,14 @@ Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 For Chapter 5, you will be adding some locations to your database. You'll use these locations throughout the project. In addition to adding Oppenheimer Cafe, add at least 3 more locations that are physically nearby (within a couple of miles of) the university, and one location which is more than 20 miles away. These should be real places, **with real longitude and latitude values**. Later, when you implement the location aware functionality of the application, you will check to see that these locations show up as expected.
 
 Notes
-* The default interface for the Mongo command line seems to have changed slightly. Specifically, empty databases are not shown when `show dbs` is called, and the amount of memory listed for the empty databases is 0.000GB rather than what is shown in the book on page 149. You won't see your new Loc8r database listed until after you carry out the `db.locations.save()` instructions later on the page. After that, your database should be listed as expected.
+* The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. To be on the safe side, you should run these commands from the DOS command prompt.  
+* The default interface for the Mongo command line has changed slightly since the publication of the book. Specifically, empty databases are not shown when `show dbs` is called, and the amount of memory listed for the empty databases is 0.000GB rather than what is shown in the book on page 149. You won't see your new Loc8r database listed until after you carry out the `db.locations.save()` instructions later on the page. After that, your database should be listed as expected.
 * On page 151, about the middle of the page, the `id` attribute listed should be `_id`. Missing the underscore here will not cause immediate problems, but it will cause problems later.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robomongo](https://robomongo.org/) GUI-based MongoDB client.
 * MongoLab (p. 152) is now [mLab](http://docs.mlab.com/).
 * On p. 153, `herou addons:add mongolab` is obsolete, use `heroku addons:create mongolab` (and yes, it's still "mongolab" rather than "mlab").
-* On p. 153, `heroku config:get MONGOLAB_URI` should now be `heroku config:get MONGODB_URI`. This is also relevant on p. 157. Set the `dbURI` variable using `process.env.MONGODB_URI`.
-* Read the top of p. 154 closely. The MONGODB_URI contains a *username* and a *password* for the database. This is **not** related to your account username and password for mLab (or Heroku).
+* On p. 153, `heroku config:get MONGOLAB_URI` should now be `heroku config:get MONGODB_URI`. This is also relevant on p. 157. Set the `dbURI` variable using `process.env.MONGODB_URI`. (Actually, either of these will work as long as you're consistent. Later, when we work with the Mean.js boilerplate, the variable will need to be `MONGODB_URI`).
+* Read the top of p. 154 closely. The `MONGODB_URI` contains a *username* and a *password* for the database. This is **not** related to your account username and password for mLab (or Heroku).
 * During `mongorestore` (p. 155) you may encounter an error like the following:
 
     ```
