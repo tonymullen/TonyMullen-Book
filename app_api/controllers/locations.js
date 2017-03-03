@@ -22,8 +22,6 @@ module.exports.locationsListByDistance = function (req, res) {
     return;
   }
   Loc.geoNear(point, geoOptions, function(err, results, stats) {
-    console.log(point);
-    console.log(geoOptions);
     var locations = [];
     results.forEach(function(doc) {
       locations.push({

@@ -3,7 +3,7 @@ var apiOptions = {
   server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "https://mysterious-cliffs-67836.herokuapp.com/";
+  apiOptions.server = "https://mysterious-cliffs-67836.herokuapp.com";
 }
 
 var renderHomepage = function(req, res) {
