@@ -173,6 +173,7 @@ Don't forget to include the link to the [Heroku app](https://getting-mean-book-t
 Notes
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * The `foreman start` command (p. 75) is obsolete. Run `heroku local` instead.
+* Pages 66 and 67 refer to a `var routes` variable that in current installations of Express is generated as `var index`.
 
 The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
 
