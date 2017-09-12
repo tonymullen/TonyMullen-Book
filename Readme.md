@@ -8,7 +8,7 @@ For each chapter, add a note with the following:
 
 Add your chapter notes in descending order, with the latest on top, as I've done below. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
 
-**The screenshot(s) must also be uploaded to Moodle** by the appropriate assignment deadline.
+**Submit the link to Moodle** by the appropriate assignment deadline.
 
 ### Committing and tagging
 
