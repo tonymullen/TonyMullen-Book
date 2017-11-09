@@ -55,7 +55,7 @@ Include a screenshot of your application with the modal window open and the vali
 
 Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
-There do not seem to be any issues or sticky points in Chapter 9.
+* **Breaking changes in the API for uglify have been introduced** `uglifyJs.minify()` no longer works as it is described in the text. Adding the latest version of UglifyJS will break your app. Instead, use version 2.4.15 (this is the version used by the book, so guaranteed to work). You can install that by manually adding `"uglify-js": "~2.4.15"` to your `package.json` file and then running `npm install`. If you've already installed another Uglify, you should probably clear your installations by first running `rm -rf node_modules` and `npm cache clean`. Furthermore, if you are using too recent of a Node version, the older Uglify may break. Node versions of 4.x.x. have been tested pretty extensively with the book code, so they should be safe.
 
 Include a screenshot of the top page of your application at this point. It should look something like this:
 
@@ -66,9 +66,10 @@ Include a screenshot of the top page of your application at this point. It shoul
 
 Heroku link: [Heroku app](https://getting-mean-book-tm.herokuapp.com/).
 
-Notes:
-* **Breaking changes have been introduced in Angular v1.6! Use Angular v1.5.0** Download your angular from https://code.angularjs.org/1.5.0/. The book uses an older version (v1.2.x) which has compatibility issues with the most recent version of ui-bootstrap. As of this writing, Angular v1.5.0 is the best version for the needs of this project. 
-* As of this writing, geolocation in Chrome appears to be (temporarily?) broken. I'm seeing an identical issue to what was discussed [here](https://www.reddit.com/r/webdev/comments/3j8ipj/anyone_else_had_issues_with_the_html5_geolocation/) some time ago. If you experience this, test your application in Firefox, Safari, and/or IE instead of Chrome and turn in a screenshot using one of those browsers.
+Notes: 
+* **Breaking changes have been introduced in Angular v1.6! Use Angular v1.5.0** Download your angular from https://code.angularjs.org/1.5.0/. The book uses an older version (v1.2.x) which has compatibility issues with the most recent version of ui-bootstrap. As of this writing, Angular v1.5.0 is the best version for the needs of this project.
+* An error has arisen with some people's Angular code that is the fault of (I believe) changes in how browsers treat named JS variables. In (at least) the loc8rData service and geolocation service, you may be having trouble if your functions are declared as described in the book: `var loc8rData = function($http) {` and `var geolocation = function() {` do not work for Angular in the way they are defined. Replace these lines with `function loc8rData ($http) {` and `function geolocation () {` respectively. This error leads to *totally incomprehensible* error messages in the Browser console, so keep this issue in mind as something that might be going wrong with your function definitions. 
+* In some cases, geolocation in Chrome appears to be (temporarily?) broken. I'm seeing an identical issue to what was discussed [here](https://www.reddit.com/r/webdev/comments/3j8ipj/anyone_else_had_issues_with_the_html5_geolocation/) some time ago. If you experience this, test your application in Firefox, Safari, and/or IE instead of Chrome and turn in a screenshot using one of those browsers.
 
 Include a screenshot of the filtering functionality in action, as shown here:
 
