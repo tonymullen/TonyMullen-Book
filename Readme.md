@@ -32,11 +32,24 @@ git push origin master --tags
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases.
 
+# <a name="ch4"></a>Chapter 4
+
+Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/)!
+
+Notes:
+
+* 
+
+**Ch 4 Readme Questions**
+
+1. 
+
 # <a name="ch3"></a>Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/)!
 
-Notes
+Notes:
+
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * Any reference to any file with the extension `.jade` should be changed to `.pug`.
 * Jade/Pug files are indentation based. Wrong indentation in these files will throw your layout out of wack. Turn on Show Indent Guide and Show Invisibles in Atom (Preferences > Editor) to see the spaces in your editor. Also, refer to the author's GitHub code directly to check the indentation when the indentation is borked in the book or e-book (as I write this, Listing 3.7 in the epub version is extremely borked).
