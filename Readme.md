@@ -38,25 +38,28 @@ Don't forget to include the link to the [Heroku app](https://getting-mean2e.hero
 
 Notes:
 
-* At the time I'm going through it, the WIP version of the book uses Bootstrap version 4.0.0-alpha.6 (this is mentioned in Appendix B). However, Bootstrap version 4.0 is now out of alpha stage and the layout of the navbar element has changed. I had some problems with the alpha version described in the book, and since the non-alpha version is probably going to be more future proof, I've updated my code to use it. I'm using Bootstrap 4.0.0-beta.2. The documentation I'm following is [here](https://getbootstrap.com/docs/4.0/components/navbar/). The Pug code for the navbar is as follows (starting with the `body` tag above the navbar):
-      body
-        nav.navbar.navbar-fixed-top.navbar-expand-lg.navbar-dark
-          .container
-            a.navbar-brand(href='/ ') Loc8r
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
-              span.navbar-toggler-icon
-            #navbarMain.navbar-collapse.collapse
-              ul.navbar-nav.mr-auto
-                li.nav-item
-                  a.nav-link(href='/about/') About
-        .container
-          block content
+* At the time I'm going through it, the WIP version of the book uses Bootstrap version 4.0.0-alpha.6 (this is mentioned in Appendix B). However, Bootstrap version 4.0 is now out of alpha stage and the layout of the navbar element has changed. I had some problems with the alpha version described in the book, and since the non-alpha version is probably going to be more future proof, I've updated my code to use it. I'm using Bootstrap 4.0.0-beta.2. The documentation I'm following is [here](https://getbootstrap.com/docs/4.0/components/navbar/). The Pug code for the navbar is as follows (starting with the `body` tag above the navbar)
+```
+  body
+    nav.navbar.navbar-fixed-top.navbar-expand-lg.navbar-dark
+      .container
+        a.navbar-brand(href='/ ') Loc8r
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
+          span.navbar-toggler-icon
+        #navbarMain.navbar-collapse.collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href='/about/') About
+    .container
+      block content
+```
     Furthermore, you'll need to add the following to your style.css file in order to give the navbar the correct background color (I don't see this described in the book, although I might have overlooked it).
+```
         .navbar {
           background-color: #ad1d28;
           border-color: #911821;
         } 
-
+```
 
 
 **Ch 4 Readme Questions**
