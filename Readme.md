@@ -53,6 +53,7 @@ Notes:
     .container
       block content
 ```
+
     Furthermore, you'll need to add the following to your style.css file in order to give the navbar the correct background color (I don't see this described in the book, although I might have overlooked it).
 ```
         .navbar {
@@ -61,6 +62,7 @@ Notes:
         } 
 ```
 
+* Next bullet point
 
 **Ch 4 Readme Questions**
 
