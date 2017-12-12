@@ -7,20 +7,22 @@ html
     link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    .navbar.navbar-default.navbar-fixed-top
+    nav.navbar.navbar-fixed-top.navbar-expand-lg.navbar-dark
       .container
-        .navbar-header
-          a.navbar-brand(href='/') Loc8r
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-              #navbar-main.navbar-collapse.collapse
-                ul.nav.navbar-nav
-                  li
-                    a(href='/about/') About
+        a.navbar-brand(href='/ ') Loc8r
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain')
+          span.navbar-toggler-icon
+        #navbarMain.navbar-collapse.collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href='/about/') About
     .container
       block content
+      footer
+        .row
+          .col-12
+            small &copy; Simon Holmes 2017
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
+    script(src='/javascripts/popper.js')
     script(src='/javascripts/bootstrap.min.js')
