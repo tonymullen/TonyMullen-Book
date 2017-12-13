@@ -1,11 +1,11 @@
 /* GET 'home' page */
 const homelist = function(req, res) {
-  res.render('index', { title: 'Home'});
+  res.render('locations-list', { title: 'Home'});
 }
 
 /* GET 'location info' page */
 const locationInfo = function(req, res) {
-  res.render('index', { title: 'Location info'});
+  res.render('location-info', { title: 'Location info'});
 }
 
 /* GET 'add review' page */
