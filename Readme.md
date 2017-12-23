@@ -69,6 +69,8 @@ Notes:
 
 ![ch3](/readme_images/ch4-1.png)
 
+![ch3](/readme_images/ch4-2.png)
+
 # <a name="ch3"></a>Chapter 3
 
 Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/)!
