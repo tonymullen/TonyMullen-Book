@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-primary {
   border-color: #a2ced3;
-  margin-bottom: 1rem;  
+  margin-bottom: 0.5rem;  
 }
 
 
@@ -67,7 +67,7 @@ h1 small {
 }
 
 p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.65rem;
 }
 
 legend {

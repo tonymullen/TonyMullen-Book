@@ -30,7 +30,9 @@ git push origin master --tags
 
 **Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
 
-This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases.
+## Chapter notes
+
+This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
 # <a name="ch4"></a>Chapter 4
 
@@ -55,6 +57,7 @@ Notes:
     ```
 
 * This doesn't seem to be mentioned outright in the text, but you'll need to add the appropriate styles to your `style.css` file in order to get the app looking right. You can find the styles in my `style.css`. My own css is slightly modified from what I'm currently seeing in the author's GitHub.
+* 
 
 
 **Ch 4 Readme Questions**
@@ -69,7 +72,7 @@ Notes:
 
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * Any reference to any file with the extension `.jade` should be changed to `.pug`.
-* Jade/Pug files are indentation based. Wrong indentation in these files will throw your layout out of wack. Turn on Show Indent Guide and Show Invisibles in Atom (Preferences > Editor) to see the spaces in your editor. Also, refer to the author's GitHub code directly to check the indentation when the indentation is borked in the book or e-book (as I write this, Listing 3.7 in the epub version is extremely borked).
+* Jade/Pug files are indentation based. Wrong indentation in these files will throw your layout out of wack. Turn on Show Indent Guide and Show Invisibles in Atom (Preferences > Editor) to see the spaces in your editor. Also, refer to the author's GitHub code directly to check the indentation when the indentation is borked in the book or e-book (as I write this, Listing 3.7 in the epub version is an example of this).
 
 **Ch 3 Readme Questions**
 
