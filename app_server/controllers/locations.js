@@ -42,14 +42,47 @@ const locationInfo = function(req, res) {
     },
     location: {
       name: 'Oppenheimer Cafe',
-      address: '1500 N Warner St'
+      address: '1500 N Warner St',
+      rating: 3,
+      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
+      coords: {lat: 47.263659, lng: -122.479300},
+      openingTimes: [{
+        days: 'Monday - Friday',
+        opening: '7:00am', 
+        closing: '7:00pm',
+        closed: false
+      },{
+        days: 'Saturday',
+        opening: '8:00am', 
+        closing: '5:00pm',
+        closed: false
+      },{
+        days: 'Sunday',
+        closed: true
+      }],
+      reviews: [
+        {
+          author: 'Simon Holmes',
+          rating: 5, 
+          timestamp: '16 July 2017',
+          reviewTest: 'What a wild scene. Love this place.'
+        },{
+          author: 'Kylo Ren',
+          rating: 2, 
+          timestamp: '22 Dec 2017',
+          reviewTest: 'This place just makes me mad.'
+        }
+      ]
     }
   });
 }
 
 /* GET 'add review' page */
 const addReview = function(req, res) {
-  res.render('location-review-form', { title: 'Add review'});
+  res.render('location-review-form', { 
+    title: 'Review Oppenheimer on Loc8r',
+    pageHeader: { title: 'Review Oppenheimer'}
+  });
 }
 
 module.exports = {

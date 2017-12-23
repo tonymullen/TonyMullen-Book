@@ -36,7 +36,9 @@ This Readme has been modified throughout the process of implementing the project
 
 # <a name="ch4"></a>Chapter 4
 
-Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/)!
+For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below. 
+
+Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/) near the top of the readme section for each chapter!
 
 Notes:
 
@@ -57,12 +59,15 @@ Notes:
     ```
 
 * This doesn't seem to be mentioned outright in the text, but you'll need to add the appropriate styles to your `style.css` file in order to get the app looking right. You can find the styles in my `style.css`. My own css is slightly modified from what I'm currently seeing in the author's GitHub.
-* 
-
+* Finishing hooking up the views to the controllers as described in Appendix C is part of the Chapter 4 assignment. Make sure this is also done. 
+* In Appendix C, the src value for the Google Maps element is enclosed in back ticks. These are not the same as single quotes, so be careful. 
 
 **Ch 4 Readme Questions**
 
-1. 
+1. In class, we've talked about code re-use, and avoiding unnecessary repetition of code. How do the Pug templates you've worked with in Chapter 4 help to accomplish this?
+2. According to the routing we have set up, what function is called when the `/location` url request is received? What file is this function defined in?
+
+![ch3](/readme_images/ch4-1.png)
 
 # <a name="ch3"></a>Chapter 3
 

@@ -1,45 +1,39 @@
 extends layout
+include _includes/sharedHTMLfunctions
 block content
   .row.banner
     .col-12
-      h1 Starcups
+      h1= pageHeader.title
   .row
     .col-12.col-lg-9
       .row
         .col-12.col-md-6
           p.rating
-            i.fa.fa-star
-            i.fa.fa-star
-            i.fa.fa-star
-            i.fa.fa-star
-            i.fa.fa-star
-          p 125 High Street, Reading, RG6 1PS
+            +outputRating(location.rating)
+          p= location.address
           .card.card-primary
             .card-block
               h2.card-title Opening hours
-              p.card-text Monday - Friday : 7:00am - 7:00pm
-              p.card-text Saturday : 8:00am - 5:00pm
-              p.card-text Sunday : closed
+              each time in location.openingTimes
+                p.card-text
+                  | #{time.days}: 
+                  if time.closed
+                    | closed
+                  else 
+                    | #{time.opening} - #{time.closing}
           .card.card-primary
             .card-block
               h2.card-title Facilities
-              span.badge.badge-warning
-                i.fa.fa-check
-                | &nbsp;Hot drinks
-              | &nbsp;
-              span.badge.badge-warning
-                i.fa.fa-check
-                | &nbsp;Food
-              | &nbsp;
-              span.badge.badge-warning
-                i.fa.fa-check
-                | &nbsp;Premium wifi
-              | &nbsp;
+              each facility in location.facilities
+                span.badge.badge-warning
+                  i.fa.fa-check
+                    | &nbsp;#{facility}
+                | &nbsp;
         .col-12.col-md-6.location-map
           .card.card-primary
             .card-block
               h2.card-title Location map
-              img.img-fluid.rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x372&sensor=false&markers=51.455041,-0.9690884')
+              img.img-fluid.rounded(src=`http://maps.googleapis.com/maps/api/staticmap?center=${location.coords.lat},${location.coords.lng}&zoom=17&size=400x372&sensor=false&markers=${location.coords.lat},${location.coords.lng}`)
       .row
         .col-12
           .card.card-primary.review-card
