@@ -1,10 +1,30 @@
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Location');
 
+
 const reviewsCreate = function(req, res) {
-  res
-    .status(200)
-    .json({"status" : "success"});
+  const locationid = req.params.locationid;
+  if (locationid) {
+    Loc
+      .findById(locationid)
+      .select('reviews')
+      .exec((err, location) => {
+        if (err) {
+          res
+            .status(400)
+            .json(err);
+        } else {
+          _doAddReview(req, res, location);
+        }
+      }
+    );
+  } else {
+    res
+      .status(404)
+      .json({
+        "message": "Not found, locationid required"
+      })
+  }
 };
 
 const reviewsReadOne = function(req, res) {
@@ -75,6 +95,69 @@ const reviewsDeleteOne = function(req, res) {
     .status(200)
     .json({"status" : "success"});
 };
+
+
+// private helper functions
+
+const _doAddReview = function(req, res, location) {
+  if (!location) {
+    res
+      .status(404)
+      .json({
+        "message": "locationid not found"
+      });
+  } else {
+    location.reviews.push({
+      author: req.body.author,
+      rating: req.body.rating,
+      reviewText: req.body.reviewText
+    });
+    location.save((err, location) => {
+      if (err) {
+        res
+          .status(400)
+          .json(err);
+      } else {
+        _updateAverageRating(location._id);
+        let thisReview = location.reviews[location.reviews.length - 1];
+        res
+          .status(201)
+          .json(thisReview);
+      }
+    })
+  }
+}
+
+const _updateAverageRating = function(locationid) {
+  Loc
+    .findById(locationid)
+    .select('rating reviews')
+    .exec((err, location) => {
+      if (!err) {
+        _doSetAverageRating(location);
+      }
+    });
+};
+
+const _doSetAverageRating = function(location) {
+  if (location.reviews && location.reviews.length > 0) {
+    const reviewCount = location.reviews.length;
+    let ratingTotal = 0;
+    for (let i = 0; i < reviewCount; i++) {
+      ratingTotal = ratingTotal + location.reviews[i].rating;
+    }
+    let ratingAverage = parseInt(ratingTotal / reviewCount, 10);
+    location.rating = ratingAverage;
+    location.save((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Average rating updated to ", ratingAverage);
+      }
+    })
+  }
+}
+
 
 module.exports = {
   reviewsCreate,
