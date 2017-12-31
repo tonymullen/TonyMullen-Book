@@ -23,10 +23,26 @@ const homelist = function(req, res) {
   request(
     requestOptions,
     (err, response, body) => {
-      _renderHomepage(req, res, body);
+      let data = body
+      for (let i = 0; i < data.length; i++) {
+        data[i].distance = _formatDistance(data[i].distance);
+      }
+      _renderHomepage(req, res, data);
     }
   )
 };
+
+const _formatDistance = function (distance) {
+  let thisDistance = 0;
+  let unit = 'm';
+  if (distance > 1000) {
+    thisDistance = parseFloat(distance/1000).toFixed(1);
+    unit = 'km';
+  } else {
+    thisDistance = Math.floor(distance);
+  }
+  return thisDistance + unit;
+}
 
 /* GET 'location info' page */
 const locationInfo = function(req, res) {
