@@ -51,6 +51,7 @@ Notes:
 
 1. According to your API routing, what is the name of the function that will be called when the server receives a POST request at the `/api/locations` URL?
 2. What is the format of the data that the server returns when you make a request to the api URLs?
+3. What is Postman for and why is it useful? How is its functionality similar to and different from a web browser like Chrome?
 
 ![ch3](/readme_images/ch6-post.png)
 
