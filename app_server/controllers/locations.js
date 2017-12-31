@@ -1,35 +1,32 @@
+const request = require('request');
+const apiOptions = {
+  server : 'http://localhost:3000'
+}
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = 'https://getting-mean2e.herokuapp.com'
+}
+
 /* GET 'home' page */
 const homelist = function(req, res) {
-  res.render('locations-list', {
-    title: 'Loc8r - find a place to work with wifi',
-    pageHeader: {
-      title: 'Loc8r',
-      strapline: 'Find places to work with wifi near you!'
-    },
-    sidebar: 'Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake, or a pint? Let Loc8r help you find the place you\'re looking for.',
-    locations: [{
-      name: 'Oppenheimer Cafe',
-      address: '555 Warner, Tacoma, WA',
-      rating: 3,
-      facilities: ['Hot drinks', 'Food', 'Premium wifi'],
-      distance: '200m'
-    },
-    {
-      name: 'Metronome Coffee',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 4,
-      facilities: ['Hot drinks', 'Food'],
-      distance: '250m'
-    },
-    {
-      name: 'Starcups',
-      address: '125 High Street, Reading, RG6 1PS',
-      rating: 2,
-      facilities: ['Donuts', 'Hot dogs', 'Premium wifi'],
-      distance: '250m'
-    }]
-  });
-}
+  console.log("homelist")
+  const path = '/api/locations';
+  const requestOptions = {
+    url : apiOptions.server + path,
+    method : 'GET',
+    json : {},
+    qs : {
+      lng : -122.500545,
+      lat : 47.335534,
+      maxDistance: 20
+    }
+  };
+  request(
+    requestOptions,
+    (err, response, body) => {
+      _renderHomepage(req, res, body);
+    }
+  )
+};
 
 /* GET 'location info' page */
 const locationInfo = function(req, res) {
@@ -82,6 +79,18 @@ const addReview = function(req, res) {
   res.render('location-review-form', { 
     title: 'Review Oppenheimer on Loc8r',
     pageHeader: { title: 'Review Oppenheimer'}
+  });
+}
+
+const _renderHomepage = function(req, res, responseBody) {
+  res.render('locations-list', {
+    title: 'Loc8r - find a place to work with wifi',
+    pageHeader: {
+      title: 'Loc8r',
+      strapline: 'Find places to work with wifi near you!'
+    },
+    sidebar: 'Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake, or a pint? Let Loc8r help you find the place you\'re looking for.',
+    locations: responseBody
   });
 }
 

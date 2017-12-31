@@ -53,7 +53,7 @@ Notes:
 2. What is the format of the data that the server returns when you make a request to the api URLs?
 3. What is Postman for and why is it useful? How is its functionality similar to and different from a web browser like Chrome?
 
-![ch3](/readme_images/ch6-post.png)
+![ch6](/readme_images/ch6-post.png)
 
 # <a name="ch5"></a>Chapter 5
 
@@ -80,7 +80,7 @@ Notes:
 
 Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this (Add a screenshot similar to this one to your Readme):
 
-![ch3](/readme_images/ch5.png)
+![ch5](/readme_images/ch5.png)
 
 # <a name="ch4"></a>Chapter 4
 
