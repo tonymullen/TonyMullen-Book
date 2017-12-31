@@ -23,9 +23,9 @@ const homelist = function(req, res) {
     requestOptions,
     (err, response, body) => {
       let data = body
-      if (response.statusCode === 200 & data.length) {
+      if (response.statusCode === 200 && data.length) {
         for (let i = 0; i < data.length; i++) {
-          data[i].distance = _formatDistance(data[i].distance);
+          data[i].distance = _formatDistance(data[i].distance);      
         }
       }
       _renderHomepage(req, res, data);
@@ -68,8 +68,7 @@ const _formatDistance = function (distance) {
   return thisDistance + unit;
 }
 
-/* GET 'location info' page */
-const locationInfo = function(req, res) {
+const _getLocationInfo = function(req, res, callback) {
   const path = `/api/locations/${req.params.locationid}`;
   requestOptions = {
     url : apiOptions.server + path,
@@ -80,14 +79,81 @@ const locationInfo = function(req, res) {
     requestOptions,
     (err, response, body) => {
       let data = body;
-      data.coords = {
-        lng : body.coords[0],
-        lat : body.coords[1]
-      };
-      console.log(data);
-      _renderDetailPage(req, res, data);
+      if (response.statusCode === 200) {
+        data.coords = {
+          lng : body.coords[0],
+          lat : body.coords[1]
+        };
+        callback(req, res, data);
+      } else {
+        _showError(req, res, response.statusCode);
+      }
     }
-  )
+  );
+};
+
+/* GET 'location info' page */
+const locationInfo = function(req, res) {
+  _getLocationInfo(req, res, (req, res, responseData) => {
+    _renderDetailPage(req, res, responseData);
+  })
+}
+
+/* GET 'add review' page */
+const addReview = function(req, res) {
+  _getLocationInfo(req, res, (req, res, responseData) => {
+    _renderReviewForm(req, res, responseData);
+  })
+}
+
+const _renderReviewForm = function (req, res, locDetail) {
+  res.render('location-review-form', {
+    title: `Review ${locDetail.name} on Loc8r`,
+    pageHeader: { title: `Review ${locDetail.name}`}
+  });
+}
+
+/* POST 'do add review' */
+const doAddReview = function(req, res) {
+  const locationid = req.params.locationid;
+  const path = `/api/locations/${locationid}/reviews`;
+  const postdata = {
+    author: req.body.name,
+    rating: parseInt(req.body.rating, 10),
+    reviewText: req.body.review
+  };
+  const requestOptions = {
+    url: apiOptions.server + path,
+    method: 'POST',
+    json: postdata
+  };
+  request(
+    requestOptions,
+    (err, response, body) => {
+      if (response.statusCode === 201) {
+        res.redirect(`/location/${locationid}`);
+      } else {
+        _showError(req, res, response.statusCode);
+      }
+    }
+  );
+};
+
+const _showError = function (req, res, status) {
+  let title = '';
+  let content = '';
+  if (status === 404) {
+    title = "404, page not found";
+    content = "Oh dear. Looks like we can't find this page. Sorry.";
+  } else {
+    title = `${status}, something's gone wrong`;
+    content = "Something, somewhere, has gone wrong."
+  }
+  res.status(status);
+  res.render('generic-text', {
+    title: title,
+    content: content
+  })
 }
 
 const _renderDetailPage = function (req, res, locDetail) {
@@ -102,17 +168,10 @@ const _renderDetailPage = function (req, res, locDetail) {
   });
 }
 
-/* GET 'add review' page */
-const addReview = function(req, res) {
-  res.render('location-review-form', { 
-    title: 'Review Oppenheimer on Loc8r',
-    pageHeader: { title: 'Review Oppenheimer'}
-  });
-}
-
 
 module.exports = {
   homelist,
   locationInfo,
-  addReview
+  addReview,
+  doAddReview
 }

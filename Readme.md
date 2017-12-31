@@ -40,7 +40,15 @@ This Readme has been modified throughout the process of implementing the project
 
 Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 
+For 
+
 Notes:
+
+**Ch 7 Things to change**
+
+For your own Chapter 7 work, your proximity-based searches should be based on your home or university location. This is hard coded into the homelist functionality at this point, so make sure the correct coordinates are used.
+
+Also, the author uses the European style of formatting dates for the customer reviews, day, month, year. You should adjust this to the US style: month, day, comma, year. So instead of "3 January 2017" the date on your customer review should read "January 3, 2018". 
 
 **Ch 7 Readme Questions**
 
@@ -60,6 +68,10 @@ Notes:
 * In section 6.2.2, you need to create placeholders for *all* of the controller functions called by your routes. Only one is shown explicitly. 
 * The current edition of the book does not include a definition for `sendJsonResponse`, although at the time I'm going through it, some references to this function remain in the listing code, for example in Listing 6.3. Instead, use the `res.status().json()` format discussed in the text and shown elsewhere in the listing. The second and third arguments to `sendJsonResponse` are the arguments to `status` and `json`, respectively.
 * The `x-www-form-urlencoded` POST form data in your request from Postman described in section 6.4.1 (Figure 6.11) needs to be input by you in Postman and submitted *to* the server. Look closely at that figure. Also, the Postman form is *very* sensitive to whitespace. Make sure that your key values such as name, address etc do not have any trailing spaces.
+
+**Ch 6 Things to change**
+
+For your own Chapter 6 work, your proximity-based searches should be based on your home or university location. Test to make sure that locations are or aren't showing up as they should, based on the distance value in meters. 
 
 **Ch 6 Readme Questions**
 
@@ -85,6 +97,9 @@ Notes:
 * For setting up your mLab database for use with your Heroku database, you have two choices. **Choose one method or the other, but not both**. The first is the simplest, but it requires use of a credit card (it is free of charge, but you need to submit credit card info to Heroku). This method, the Heroku add-on method, is described in the main text of the book. The sidebar (gray area) describes setting up your mLab database directly through the mLab website, which does not require a credit card. 
 * Read the section on the database URI closely. The MONGODB_URI contains a username and a password for the *database*. This is not related to your account username and password for mLab (or Heroku).
 
+**Ch 5 Things to change**
+
+For your own Chapter 5 work, add at least one location to the database which is nearby to the university, and at least one location that is further away from the university, so that you can test that the distance search is working correctly. 
 
 **Ch 5 Readme Questions**
 
@@ -99,8 +114,6 @@ Nothing has changed in Chapter 5 with the front-end of your application on Herok
 # <a name="ch4"></a>Chapter 4
 
 **A site with Node and Express**
-
-For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below. 
 
 Don't forget to include the link to the [Heroku app](https://getting-mean2e.herokuapp.com/) near the top of the readme section for each chapter!
 
@@ -125,11 +138,15 @@ Notes:
 * This doesn't seem to be mentioned outright in the text, but you'll need to add the appropriate styles to your `style.css` file in order to get the app looking right. You can find the styles in my `style.css`. My own css is slightly modified from what I'm currently seeing in the author's GitHub.
 * Finishing hooking up the views to the controllers as described in Appendix C is part of the Chapter 4 assignment. Make sure this is also done. 
 * In Appendix C, the src value for the Google Maps element is enclosed in back-ticks. These are not the same as single quotes, so be careful. 
-* [As of June 22, 2016 GoogleMaps requires an API key to embed](https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html). This means that your application may not display the generated map image correctly, using only the URL from the book. To resolve this, you will need to get an API key from Google. You can do that [here](https://developers.google.com/maps/documentation/javascript/get-api-key?utm_source=geoblog&utm_medium=social&utm_campaign=2016-geo-na-website-gmedia-blogs-us-blogPost&utm_content=TBC) (click "Get A Key"). Follow the steps to generate a key. They key will look like a string of random letters and numbers. Include this in your link as part of the query string in the form &key=<your_key>, something like this:
+* [As of June 22, 2016 GoogleMaps requires an API key to embed](https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html). This means that your application may not display the generated map image correctly, using only the URL from the book. To resolve this, you will need to get an API key from Google. You can do that [here](https://developers.google.com/maps/documentation/javascript/get-api-key?utm_source=geoblog&utm_medium=social&utm_campaign=2016-geo-na-website-gmedia-blogs-us-blogPost&utm_content=TBC) (click "Get A Key"). Follow the steps to generate a key. They key will look like a string of random letters and numbers. Include this in your link as part of the query string in the form `&key=<your_key>`, something like this:
 
         http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&key=AIzxSyBqUF6InQDrBA8940pAjAZkG23qPMki-hE
 
     You may also need to enable the Google Static Maps API. To do this, go to the API Manager Dashboard and click on "Enable API" at the top of the screen. Find Google Static Maps API (you may need to click "More" under the Maps APIs), view the API page and click "Enable". Your application should display the graphic correctly.
+    
+**Ch 4 Things to change**
+
+For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below. 
 
 **Ch 4 Readme Questions**
 
