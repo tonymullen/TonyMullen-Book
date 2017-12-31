@@ -59,7 +59,7 @@ Notes:
 
 Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this (Add a screenshot similar to this one to your Readme):
 
-![ch3](/readme_images/ch4-2.png)
+![ch3](/readme_images/ch5.png)
 
 # <a name="ch4"></a>Chapter 4
 
