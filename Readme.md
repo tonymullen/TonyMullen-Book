@@ -34,6 +34,23 @@ git push origin master --tags
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
+# <a name="ch6"></a>Chapter 6
+
+**Writing a REST API: Exposing the MongoDB database to the application**
+
+Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
+
+Notes:
+
+* Listing 6.1 should be named `index.js` rather than `locations.js`.
+* In section 6.2.2, you need to create placeholders for *all* of the controller functions called by your routes. Only one is shown explicitly. 
+
+**Ch 6 Readme Questions**
+
+1. According to your API routing, what is the name of the function that will be called when the server receives a POST request at the `/api/locations` URL?
+2. What is the format of the data that the server returns when you make a request to the api URLs?
+
+
 # <a name="ch5"></a>Chapter 5
 
 **Data model with MongoDB and Mongoose**
@@ -110,6 +127,7 @@ Notes:
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * Any reference to any file with the extension `.jade` should be changed to `.pug`.
 * Jade/Pug files are indentation based. Wrong indentation in these files will throw your layout out of wack. Turn on Show Indent Guide and Show Invisibles in Atom (Preferences > Editor) to see the spaces in your editor. Also, refer to the author's GitHub code directly to check the indentation when the indentation is borked in the book or e-book (as I write this, Listing 3.7 in the epub version is an example of this).
+* In section 3.3.3 the line of code `var routes = require('./routes/index');` actually appears in the generated express app as `var index = require('./routes/index');`. This variable is used a few lines later and must be consistent. The author goes with `routes`. If you use `routes`, be sure to change the line `app.use('/', index);` below to `app.use('/', routes);`.
 
 **Ch 3 Readme Questions**
 
