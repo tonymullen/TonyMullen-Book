@@ -8,11 +8,12 @@ block content
         small &nbsp;#{pageHeader.strapline}
   .row
     .col-12.col-md-8
+      .error= message
       each location in locations
         .card.card-primary
           .card-block
             h4
-              a(href="/location")= location.name
+              a(href=`/location/${location._id}`)= location.name
               small &nbsp;
                 +outputRating(location.rating)
               span.badge.badge-pill.badge-default.float-right= location.distance

@@ -34,6 +34,20 @@ git push origin master --tags
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
+# <a name="ch6"></a>Chapter 7
+
+**Consuming a REST API: Using an API from inside Express**
+
+Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
+
+Notes:
+
+**Ch 7 Readme Questions**
+
+1. The title of the chapter is "Consuming a REST API". What does this mean? In what sense is what you're doing in this chapter "consuming" the API you set up in chapter 6?
+2. Assuming your application is working properly, what's a single line of code you can delete to test the "API Lookup Error" message?
+3. There's an interesting bug described (and fixed) in the chapter that would affect people located at a specific latitude or longitude, yielding an API error when there shouldn't be one. How does JavaScript's approach to truthiness relate to this problem?
+
 # <a name="ch6"></a>Chapter 6
 
 **Writing a REST API: Exposing the MongoDB database to the application**
@@ -111,6 +125,11 @@ Notes:
 * This doesn't seem to be mentioned outright in the text, but you'll need to add the appropriate styles to your `style.css` file in order to get the app looking right. You can find the styles in my `style.css`. My own css is slightly modified from what I'm currently seeing in the author's GitHub.
 * Finishing hooking up the views to the controllers as described in Appendix C is part of the Chapter 4 assignment. Make sure this is also done. 
 * In Appendix C, the src value for the Google Maps element is enclosed in back-ticks. These are not the same as single quotes, so be careful. 
+* [As of June 22, 2016 GoogleMaps requires an API key to embed](https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html). This means that your application may not display the generated map image correctly, using only the URL from the book. To resolve this, you will need to get an API key from Google. You can do that [here](https://developers.google.com/maps/documentation/javascript/get-api-key?utm_source=geoblog&utm_medium=social&utm_campaign=2016-geo-na-website-gmedia-blogs-us-blogPost&utm_content=TBC) (click "Get A Key"). Follow the steps to generate a key. They key will look like a string of random letters and numbers. Include this in your link as part of the query string in the form &key=<your_key>, something like this:
+
+        http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&key=AIzxSyBqUF6InQDrBA8940pAjAZkG23qPMki-hE
+
+    You may also need to enable the Google Static Maps API. To do this, go to the API Manager Dashboard and click on "Enable API" at the top of the screen. Find Google Static Maps API (you may need to click "More" under the Maps APIs), view the API page and click "Enable". Your application should display the graphic correctly.
 
 **Ch 4 Readme Questions**
 
