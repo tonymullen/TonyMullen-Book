@@ -1,7 +1,49 @@
+const mongoose = require('mongoose');
+const Loc = mongoose.model('Location');
+
+
 const locationsListByDistance = function(req, res) {
-  res
-    .status(200)
-    .json({"status" : "success"});
+  const lng = parseFloat(req.query.lng);
+  const lat = parseFloat(req.query.lat);
+  const point = {
+    type: "Point",
+    coordinates: [lng, lat]
+  };
+  const geoOptions = {
+    spherical: true,
+    maxDistance: 20000,
+    num: 10
+  };
+  if (!lng || !lat) {
+    res
+      .status(404)
+      .json({
+        "message": "lng and lat query parameters are required"
+      });
+      return;
+  }
+  Loc.geoNear(point, geoOptions, (err, results, stats) => {
+    let locations = [];
+    if (err) {
+      res
+        .status(404)
+        .json(err);
+    } else {
+      results.forEach((doc) => {
+        locations.push({
+          distance: doc.dis,
+          name: doc.obj.name,
+          address: doc.obj.address,
+          rating: doc.obj.rating,
+          facilities: doc.obj.facilities,
+          _id: doc.obj._id
+        });
+      });
+      res
+        .status(200)
+        .json(locations);
+    }
+  });
 };
 
 const locationsCreate = function(req, res) {
@@ -11,9 +53,34 @@ const locationsCreate = function(req, res) {
 };
 
 const locationsReadOne = function(req, res) {
-  res
-    .status(200)
-    .json({"status" : "success"});
+  if (req.params && req.params.locationid) {
+    Loc
+      .findById(req.params.locationid)
+      .exec((err, location) => {
+        if (!location) {
+          res
+            .status(404)
+            .json({
+              "message": "locationid not found"
+            });
+            return;
+        } else if (err) {
+          res
+            .status(404)
+            .json(err);
+          return;
+        }
+        res
+          .status(200)
+          .json(location);
+      });
+  } else {
+    res
+      .status(404)
+      .json({
+        "message": "No locationid in request"
+      })
+  }
 };
 
 const locationsUpdateOne = function(req, res) {

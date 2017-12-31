@@ -44,6 +44,8 @@ Notes:
 
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
 * In section 6.2.2, you need to create placeholders for *all* of the controller functions called by your routes. Only one is shown explicitly. 
+* The current edition of the book does not include a definition for `sendJsonResponse`, although at the time I'm going through it, some references to this function remain in the listing code, for example in Listing 6.3. Instead, use the `res.status().json()` format discussed in the text and shown elsewhere in the listing. The second and third arguments to `sendJsonResponse` are the arguments to `status` and `json`, respectively.
+* The `x-www-form-urlencoded` POST form data in your request from Postman described in section 6.4.1 (Figure 6.11) needs to be input by you in Postman and submitted *to* the server. Look closely at that figure. Also, the Postman form is *very* sensitive to whitespace. Make sure that your key values such as name, address etc do not have any trailing spaces.
 
 **Ch 6 Readme Questions**
 
