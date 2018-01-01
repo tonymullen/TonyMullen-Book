@@ -2,14 +2,21 @@
 
 This is the project described in the book Getting MEAN (2nd Ed) by Simon Holmes. Your Readme.md should look something approximately like this one.
 
-For each chapter, add a note with the following:
-* A description in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
-* The answer to all **readme questions** listed on this page for the chapter. 
-* A screenshot of the current state of your work (see my chapter notes on this page for each chapter for specifics on what you should include in the screenshot).
+## Checklist
 
-Add your chapter notes **in descending order, with the latest on top,** as I've done below. Scroll to the bottom of this readme to see some tips on how to use the Markdown notation to get the elements you need.
+For each chapter, all of the following are required for full credit:
 
-**Submit the link to Moodle** by the appropriate assignment deadline. 
+* A submission on Moodle with a link to your GitHub project page **by the appropriate assignment deadline**. See the course assignment page for details on deadlines and lateness policy.
+* At least 4 Git commits per chapter, with meaningful comments describing what was done
+* A tagged release representing each completed chapter (more on this below)
+* A readme entry for the chapter. Readme chapter entries should be **in descending order, with the latest on top**, and must include:
+  * A working Heroku link, placed at the top of your chapter notes
+  * A description in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
+  * The answer to all **readme questions** listed on this page for the chapter. 
+  * A screenshot of the current state of your work (see my chapter notes on this page for each chapter for specifics on what you should include in the screenshot).
+
+
+Scroll to the bottom of this readme to see some tips on how to use the Markdown notation to get the elements you need.
 
 ### Committing and tagging
 
@@ -30,7 +37,7 @@ git push origin master --tags
 
 Always ensure that your code is working before committing it and before adding more code. You should be manually testing your work frequently so that you don't write too much code to quickly debug it if it's not working properly. In general, `nodemon` should be running all the time as you develop, and you should stop and fix anything that makes your server stop working **immediately**. If come to me for troubleshooting help, you can expect me to ask you what you've done since the last time the application was working. **You will make more work for yourself if you keep adding to broken code.**
 
-## Chapter notes
+# Chapter notes
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
