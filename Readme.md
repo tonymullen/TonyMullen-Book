@@ -28,7 +28,7 @@ In addition, as you complete each chapter, you should **commit and tag** the rel
 git push origin master --tags
 ```
 
-**Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
+Always ensure that your code is working before committing it and before adding more code. You should be manually testing your work frequently so that you don't write too much code to quickly debug it if it's not working properly. In general, `nodemon` should be running all the time as you develop, and you should stop and fix anything that makes your server stop working **immediately**. If come to me for troubleshooting help, you can expect me to ask you what you've done since the last time the application was working. **You will make more work for yourself if you keep adding to broken code.**
 
 ## Chapter notes
 
@@ -40,9 +40,10 @@ This Readme has been modified throughout the process of implementing the project
 
 Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 
-For 
-
 Notes:
+
+* At the time I'm going through it, listing 7.22 has some remaining cruft from the previous edition in it that you should ignore. The `var reviewSchema` stuff at the bottom of the listing is redundant and out-of-date.
+* In section 7.5.1, the text refers to `_doAddReview` as being found in the `locations.js` file. It is actually in the `reviews.js` file.  
 
 **Ch 7 Things to change**
 
@@ -54,7 +55,9 @@ Also, the author uses the European style of formatting dates for the customer re
 
 1. The title of the chapter is "Consuming a REST API". What does this mean? In what sense is what you're doing in this chapter "consuming" the API you set up in chapter 6?
 2. Assuming your application is working properly, what's a single line of code you can delete to test the "API Lookup Error" message?
-3. There's an interesting bug described (and fixed) in the chapter that would affect people located at a specific latitude or longitude, yielding an API error when there shouldn't be one. How does JavaScript's approach to truthiness relate to this problem?
+3. There's an interesting bug described (and fixed) in the chapter that would affect people located at certain specific latitudes or longitudes, yielding an API error when there shouldn't be one. How does JavaScript's approach to truthiness relate to this problem?
+
+![ch7](/readme_images/ch7.png)
 
 # <a name="ch6"></a>Chapter 6
 
