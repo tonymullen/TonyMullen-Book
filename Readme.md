@@ -29,7 +29,7 @@ git commit -m "your comment here"
 
 Always include a brief but *meaningful* comment. Do not make comments like "blahblah" or "some stuff". [Here's some good advice on commit messages](http://chris.beams.io/posts/git-commit/).
 
-In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
+In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the releases for this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
 
 ```
 git push origin master --tags
@@ -41,7 +41,23 @@ Always ensure that your code is working before committing it and before adding m
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
-# <a name="ch6"></a>Chapter 7
+# <a name="ch8"></a>Chapter 8
+
+**Consuming a REST API: Using an API from inside Express**
+
+Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
+
+Notes:
+
+* When you run the Angular command line application, you may get a warning like the following;
+        Unable to find "@angular/cli" in devDependencies.
+        
+        Please take the following steps to avoid issues:
+        "npm install --save-dev @angular/cli@latest"
+
+    **Don't** do this. If you do, you may wind up with an error when you try to create the new angular application that reads: `You cannot use the new command inside an angular-cli project.` If this happens, you'll need to remove the dev dependency from your `package.json` file.
+
+# <a name="ch7"></a>Chapter 7
 
 **Consuming a REST API: Using an API from inside Express**
 
@@ -51,6 +67,8 @@ Notes:
 
 * At the time I'm going through it, listing 7.22 has some remaining cruft from the previous edition in it that you should ignore. The `var reviewSchema` stuff at the bottom of the listing is redundant and out-of-date.
 * In section 7.5.1, the text refers to `_doAddReview` as being found in the `locations.js` file. It is actually in the `reviews.js` file.  
+* The necessary ID tag for jQuery browser validation described in section 7.5.3 is not present in the author's code online and it's not shown how to put it into the view. To make this work add the `#addReview` tag to the form element in your Pug view like this:
+        form#addReview(action="", method="post", role="form")
 
 **Ch 7 Things to change**
 
