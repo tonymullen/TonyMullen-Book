@@ -1,4 +1,4 @@
-<div class="card card-primary">
+<div class="card card-primary" *ngFor="let location of locations">
   <div class="card-block"><h4>
     <a href="/location/{{location._id}}">
       {{location.name}}</a>

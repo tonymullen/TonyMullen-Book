@@ -43,7 +43,7 @@ This Readme has been modified throughout the process of implementing the project
 
 # <a name="ch8"></a>Chapter 8
 
-**Consuming a REST API: Using an API from inside Express**
+**Creating an Angular application with TypeScript**
 
 Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 
@@ -56,6 +56,8 @@ Notes:
         "npm install --save-dev @angular/cli@latest"
 
     **Don't** do this. If you do, you may wind up with an error when you try to create the new angular application that reads: `You cannot use the new command inside an angular-cli project.` If this happens, you'll need to remove the dev dependency from your `package.json` file.
+
+* I've run into problems with the current version of Angular's `Http` module, which make me think that the book's code is deprecated. As this is my own introduction to Angular 2+, I'm going to set this aside until the book has been updated. 
 
 # <a name="ch7"></a>Chapter 7
 
