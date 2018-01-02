@@ -1,14 +1,22 @@
-# Getting MEAN book project
+#Getting MEAN book project
 
-This is the project described in the book Getting MEAN by Simon Holmes. Your Readme.md should look something approximately like this one.
+This is my repository for the project described in the book Getting MEAN (2nd Ed) by Simon Holmes. This readme contains specific instructions for each chapter and questions you will need to answer, as well as chapter-by-chapter notes which will be helpful to you as you work though the book. The notes highlight errors in the text, software version issues, or other places where students frequently hit snags. 
 
-For each chapter, add a note with the following:
-* a description in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
-* a screenshot of the current state of your work (see my chapter notes for each chapter for specifics on what you should include in the screenshot).
+Your Readme.md should be structured similarly to this one. Scroll to the bottom of this readme to see some tips on how to use the Markdown notation to get the elements you need.
 
-Add your chapter notes in descending order, with the latest on top, as I've done below. If there are any specific questions to answer in the chapter's assignment answer them in the corresponding comments. Scroll to the bottom of this Readme.md to see some tips on how to use the Markdown notation to get the elements you need.
+## Submission checklist
 
-**Submit the link to Moodle** by the appropriate assignment deadline.
+For each chapter, all of the following are required for full credit:
+
+* A submission on Moodle with a link to your GitHub project page **by the appropriate assignment deadline**. See the course assignment page for details on deadlines and lateness policy.
+* At least 4 Git commits per chapter, with meaningful comments describing what was done
+* A tagged release representing each completed chapter (more on this below)
+* A readme entry for the chapter. Readme chapter entries should be **in descending order, with the latest on top**, and must include:
+  * A working Heroku link, placed at the top of your chapter notes
+  * A description in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
+  * The answer to all **readme questions** listed on this page for the chapter. 
+  * A screenshot of the current state of your work (see my chapter notes on this page for each chapter for specifics on what you should include in the screenshot).
+
 
 ### Committing and tagging
 
@@ -21,14 +29,15 @@ git commit -m "your comment here"
 
 Always include a brief but *meaningful* comment. Do not make comments like "blahblah" or "some stuff". [Here's some good advice on commit messages](http://chris.beams.io/posts/git-commit/).
 
-In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the commit history of this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
+In addition, as you complete each chapter, you should **commit and tag** the release representing that chapter, so I can quickly go to the last commit for each chapter. Look at the releases for this repository to see an example. [Here's the documentation on tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging). You must also push your commits to GitHub and Heroku. Pushing to GitHub (with tags) should look something like this:
 
 ```
 git push origin master --tags
 ```
 
-**Always ensure that your code is working before committing it.** You should be manually testing your work **frequently** so that you don't write too much code to quickly debug it if it's not working properly.
+Always ensure that your code is working before committing it and before adding more code. You should be manually testing your work frequently so that you don't write too much code to quickly debug it if it's not working properly. In general, `nodemon` should be running all the time as you develop, and you should stop and fix anything that makes your server stop working **immediately**. If come to me for troubleshooting help, you can expect me to ask you what you've done since the last time the application was working. **You will make more work for yourself if you keep adding to broken code.**
 
+# Chapter notes
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases.
 
 # <a name="ch10"></a>Chapter 10
@@ -71,6 +80,11 @@ Notes:
 * An error has arisen with some people's Angular code that is the fault of (I believe) changes in how browsers treat named JS variables. In (at least) the loc8rData service and geolocation service, you may be having trouble if your functions are declared as described in the book: `var loc8rData = function($http) {` and `var geolocation = function() {` do not work for Angular in the way they are defined. Replace these lines with `function loc8rData ($http) {` and `function geolocation () {` respectively. This error leads to *totally incomprehensible* error messages in the Browser console, so keep this issue in mind as something that might be going wrong with your function definitions. 
 * In some cases, geolocation in Chrome appears to be (temporarily?) broken. I'm seeing an identical issue to what was discussed [here](https://www.reddit.com/r/webdev/comments/3j8ipj/anyone_else_had_issues_with_the_html5_geolocation/) some time ago. If you experience this, test your application in Firefox, Safari, and/or IE instead of Chrome and turn in a screenshot using one of those browsers.
 
+**Ch 8 Readme Questions**
+
+1. AngularJS is a front-end framework. What does that mean in terms of what machine the code is executed on? 
+2. If you put a `console.log()` command in your AngularJS controller, where would you see the output?
+
 Include a screenshot of the filtering functionality in action, as shown here:
 
 ![ch8](/readme_images/ch8.png)
@@ -91,6 +105,19 @@ Notes:
 
 If your form validation is working properly, trying to submit an empty review form will result in an error message as shown in the screenshot below. Include a screenshot of this behavior in your own application:
 
+**Ch 7 Things to change**
+
+For your own Chapter 7 work, your proximity-based searches should be based on your home or university location. This is hard coded into the homelist functionality at this point, so make sure the correct coordinates are used.
+
+Also, the author uses the European style of formatting dates for the customer reviews, day, month, year. You should adjust this to the US style: month, day, comma, year. So instead of "3 January 2017" the date on your customer review should read "January 3, 2018". 
+
+**Ch 7 Readme Questions**
+
+1. The title of the chapter is "Consuming a REST API". What does this mean? In what sense is what you're doing in this chapter "consuming" the API you set up in chapter 6?
+2. Assuming your application is working properly, what's a single line of code you can delete to test the "API Lookup Error" message?
+3. There's an interesting bug described (and fixed) in the chapter that would affect people located at certain specific latitudes or longitudes, yielding an API error when there shouldn't be one. How does JavaScript's approach to truthiness relate to this problem?
+
+
 ![ch7](/readme_images/ch7-val.png)
 
 
@@ -104,6 +131,16 @@ Notes:
 * The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
 * Contrary to the discussion on p. 182-183, MongoDB carries out geoNear calculations in meters, rather than radians. For this reason the `theEarth` function described in the top half of p. 183 should be ignored. Calls to this function with km arguments, such as the `maxDistance: theEarth.getRadsFromDistance(20),` line near the bottom of p. 183 should be replaced by the equivalent value in meters, so in this example the code should be `maxDistance: 20000,`. The same goes for anywhere else that function is used in the text.
 * The `x-www-form-urlencoded` POST form data in your request from Postman described on page 190 (Figure 6.11) is very sensitive to whitespace. **Make sure that your key values such as `name`, `address` etc do not have any trailing spaces.**
+
+**Ch 6 Things to change**
+
+For your own Chapter 6 work, your proximity-based searches should be based on your home or university location. Test to make sure that locations are or aren't showing up as they should, based on the distance value in meters. 
+
+**Ch 6 Readme Questions**
+
+1. According to your API routing, what is the name of the function that will be called when the server receives a POST request at the `/api/locations` URL?
+2. What is the format of the data that the server returns when you make a request to the api URLs?
+3. What is Postman for and why is it useful? How is its functionality similar to and different from a web browser like Chrome?
 
 
 Nothing has changed in on the Heroku app front-end. You should have successfully managed to use Postman to call RESTful methods on your local database. Add a screenshot showing a successful POST method call which adds a new location, similar to this one (if necessary, you can include more than one screenshot to show both the request body and the response):
@@ -138,6 +175,18 @@ Notes
     {"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Loc8r.locations"},{"v":1,"key":{"coords":"2dsphere"},"name":"coords_2dsphere","ns":"Loc8r.locations","background":true,"2dsphereIndexVersion":2}]}
     ```
 
+
+**Ch 5 Things to change**
+
+For your own Chapter 5 work, add at least one location to the database which is nearby to the university, and at least one location that is further away from the university, so that you can test that the distance search is working correctly. 
+
+**Ch 5 Readme Questions**
+
+1. What are individual database entries (items in a collection) called in MongoDB?
+2. What's the difference between the command line commands `mongo` and `mongod`? Which of these two needs to be running all the time in order for your application to work?
+3. What services is mLab providing, and why do we need it?
+
+
 Nothing has changed in Chapter 5 with the front-end of your application on Heroku. Your mLab control panel should display the locations collection like this (Add a screenshot similar to this one to your Readme):
 
 ![ch5](/readme_images/ch5.png)
@@ -163,6 +212,16 @@ http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=1
 
 Also, you'll need to enable the Google Static Maps API. To do this, go to the API Manager Dashboard and click on "Enable API" at the top of the screen. Find Google Static Maps API (you may need to click "More" under the Maps APIs), view the API page and click "Enable". Your application should display the graphic correctly.
 
+**Ch 4 Things to change**
+
+For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below. 
+
+**Ch 4 Readme Questions**
+
+1. In class, we've talked about code re-use, and avoiding unnecessary repetition of code. How do the Jade/Pug templates you've worked with in Chapter 4 help to accomplish this?
+2. According to the routing we have set up, what function is called when the `/location` url request is received? What file is this function defined in?
+3. In the MEAN acronym, which letter is most closely associated with the part of the stack that provides our routing functionality? Is this "front end" functionality or "back end" functionality?
+
 The app now has several pages. Include a screenshot of the location info page (with the map). Here notice that the map displays the location of Oppenheimer Cafe:
 
 ![ch4](/readme_images/ch4.png)
@@ -175,6 +234,12 @@ Notes
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * The `foreman start` command (p. 75) is obsolete. Run `heroku local` instead.
 * Pages 66 and 67 refer to a `var routes` variable that in current installations of Express is generated as `var index`.
+
+**Ch 3 Readme Questions**
+
+1. What do we call the process of mapping URL requests to the functionality we want to associate with the URL? For example, when the URL `/` is requested (this represents the base URL for our application's domain), we want to execute the controller function that renders our title page. What do we call the code that connects a URL request to our controller code?
+2. What is the Node command to bring an external module into your code?
+3. If you put this line of code: `console.log('This is a console log message')` into your `app.js` file, where do you see the resulting console log message?
 
 The app so far should look like this on Heroku (include a screenshot with each chapter's update!):
 
