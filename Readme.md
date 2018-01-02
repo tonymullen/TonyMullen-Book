@@ -1,4 +1,4 @@
-#Getting MEAN book project
+# Getting MEAN book project
 
 This is my repository for the project described in the book Getting MEAN (2nd Ed) by Simon Holmes. This readme contains specific instructions for each chapter and questions you will need to answer, as well as chapter-by-chapter notes which will be helpful to you as you work though the book. The notes highlight errors in the text, software version issues, or other places where students frequently hit snags. 
 
