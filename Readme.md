@@ -115,8 +115,6 @@ Notes:
     }, {usePushEach:true});
     ```
 
-If your form validation is working properly, trying to submit an empty review form will result in an error message as shown in the screenshot below. Include a screenshot of this behavior in your own application:
-
 **Ch 7 Things to change**
 
 For your own Chapter 7 work, your proximity-based searches should be based on your home or university location. This is hard coded into the homelist functionality at this point, so make sure the correct coordinates are used.
@@ -129,9 +127,9 @@ Also, the author uses the European style of formatting dates for the customer re
 2. Assuming your application is working properly, what's a single line of code you can delete to test the "API Lookup Error" message?
 3. There's an interesting bug described (and fixed) in the chapter that would affect people located at certain specific latitudes or longitudes, yielding an API error when there shouldn't be one. How does JavaScript's approach to truthiness relate to this problem?
 
+If your form validation is working properly, trying to submit an empty review form will result in an error message as shown in the screenshot below. Include a screenshot of this behavior in your own application:
 
 ![ch7](/readme_images/ch7-val.png)
-
 
 # <a name="ch6"></a>Chapter 6
 **Setting up the RESTful API**
