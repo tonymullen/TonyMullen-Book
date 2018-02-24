@@ -103,18 +103,17 @@ Notes:
     form#addReview.form-horizontal(action="", method="post", role="form")
     ```
 * There is a breaking change in recent versions of MongoDB (at least 3.6.2 and later) that requires a modification to your schema. If this is not fixed, it will not be possible to submit reviews. The `{usePushEach:true}` option must be added to your location schema, so that schema should look like this:
-
-```
-  var locationSchema = new mongoose.Schema({
-   name: {type: String, required: true},
-   address: String, 
-   rating: {type: Number,"default": 0,min: 0, max: 5},
-   facilities: [String],
-   coords: {type: [Number], index: '2dsphere', required: true},
-   openingTimes: [openingTimeSchema],
-   reviews: [reviewSchema]
-  },{usePushEach:true});
-```
+    ```
+    var locationSchema = new mongoose.Schema({
+     name: {type: String, required: true},
+     address: String, 
+     rating: {type: Number,"default": 0,min: 0, max: 5},
+     facilities: [String],
+     coords: {type: [Number], index: '2dsphere', required: true},
+     openingTimes: [openingTimeSchema],
+     reviews: [reviewSchema]
+    }, {usePushEach:true});
+    ```
 
 If your form validation is working properly, trying to submit an empty review form will result in an error message as shown in the screenshot below. Include a screenshot of this behavior in your own application:
 
