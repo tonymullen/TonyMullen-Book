@@ -22,6 +22,6 @@ var locationSchema = new mongoose.Schema({
   coords: { type: [Number], index: '2dsphere' },
   openingTimes: [openingTimeSchema],
   reviews: [reviewSchema]
-});
+},{usePushEach:true});
 
 mongoose.model('Location', locationSchema);

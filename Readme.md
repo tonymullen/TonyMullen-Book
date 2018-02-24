@@ -131,6 +131,19 @@ Notes:
 * The Postman in-tab REST Client application (shown on p. 173) is deprecated in Chrome. Use the packaged app available at [here](https://www.getpostman.com/).
 * Contrary to the discussion on p. 182-183, MongoDB carries out geoNear calculations in meters, rather than radians. For this reason the `theEarth` function described in the top half of p. 183 should be ignored. Calls to this function with km arguments, such as the `maxDistance: theEarth.getRadsFromDistance(20),` line near the bottom of p. 183 should be replaced by the equivalent value in meters, so in this example the code should be `maxDistance: 20000,`. The same goes for anywhere else that function is used in the text.
 * The `x-www-form-urlencoded` POST form data in your request from Postman described on page 190 (Figure 6.11) is very sensitive to whitespace. **Make sure that your key values such as `name`, `address` etc do not have any trailing spaces.**
+* There is a breaking change in recent versions of MongoDB (at least 3.6.2 and later) that requires a modification to your schema. The `{usePushEach:true}` option must be added to your location schema, so that schema should look like this:
+
+```
+    var locationSchema = new mongoose.Schema({
+	     name: {type: String, required: true},
+	     address: String, 
+	     rating: {type: Number,"default": 0,min: 0, max: 5},
+	     facilities: [String],
+	     coords: {type: [Number], index: '2dsphere', required: true},
+	     openingTimes: [openingTimeSchema],
+	     reviews: [reviewSchema]
+    },{usePushEach:true});
+    ```
 
 **Ch 6 Things to change**
 
@@ -231,6 +244,7 @@ The app now has several pages. Include a screenshot of the location info page (w
 Don't forget to include the link to the [Heroku app](https://getting-mean-book-tm.herokuapp.com/)!
 
 Notes
+* As of this writing, the best Node version to use is v4.2.1. Install this with NVM, and copy the contents of my `package.json` file before running `npm install` for the best versions of dependencies. 
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * The `foreman start` command (p. 75) is obsolete. Run `heroku local` instead.
 * Pages 66 and 67 refer to a `var routes` variable that in current installations of Express is generated as `var index`.
