@@ -143,7 +143,7 @@ Notes:
 	     openingTimes: [openingTimeSchema],
 	     reviews: [reviewSchema]
     },{usePushEach:true});
-    ```
+```
 
 **Ch 6 Things to change**
 
