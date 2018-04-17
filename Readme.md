@@ -1,6 +1,6 @@
 # Getting MEAN 2nd Edition book project
 
-This is my repository for the project described in the book Getting MEAN (2nd Ed) by Simon Holmes. This readme contains specific instructions for each chapter and questions you will need to answer, as well as chapter-by-chapter notes which will be helpful to you as you work though the book. The notes highlight errors in the text, software version issues, or other places where students frequently hit snags. 
+This is my repository for the project described in the book Getting MEAN (2nd Ed) by Simon Holmes. This readme contains specific instructions for each chapter and questions you will need to answer, as well as chapter-by-chapter notes which will be helpful to you as you work though the book. The notes highlight errors in the text, software version issues, or other places where students frequently hit snags.
 
 Your Readme.md should be structured similarly to this one. Scroll to the bottom of this readme to see some tips on how to use the Markdown notation to get the elements you need.
 
@@ -14,7 +14,7 @@ For each chapter, all of the following are required for full credit:
 * A readme entry for the chapter. Readme chapter entries should be **in descending order, with the latest on top**, and must include:
   * A working Heroku link, placed at the top of your chapter notes
   * A description in your own words (>= 80 words) of the functionality you implemented and how it works, and list any challenges or problems you encountered.
-  * The answer to all **readme questions** listed on this page for the chapter. 
+  * The answer to all **readme questions** listed on this page for the chapter.
   * A screenshot of the current state of your work (see my chapter notes on this page for each chapter for specifics on what you should include in the screenshot).
 
 
@@ -49,15 +49,17 @@ Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 
 Notes:
 
+* When creating the new application, don't use the `-st` option. We'll let Angular create some unit tests in order to study how they are written.
+
 * When you run the Angular command line application, you may get a warning like the following;
         Unable to find "@angular/cli" in devDependencies.
-        
+
         Please take the following steps to avoid issues:
         "npm install --save-dev @angular/cli@latest"
 
     **Don't** do this. If you do, you may wind up with an error when you try to create the new angular application that reads: `You cannot use the new command inside an angular-cli project.` If this happens, you'll need to remove the dev dependency from your `package.json` file.
 
-* I've run into problems with the current version of Angular's `Http` module, which make me think that the book's code is deprecated. As this is my own introduction to Angular 2+, I'm going to set this aside until the book has been updated. 
+* I've run into problems with the current version of Angular's `Http` module, which make me think that the book's code is deprecated. As this is my own introduction to Angular 2+, I'm going to set this aside until the book has been updated.
 
 # <a name="ch7"></a>Chapter 7
 
@@ -76,7 +78,7 @@ Notes:
 
 For your own Chapter 7 work, your proximity-based searches should be based on your home or university location. This is hard coded into the homelist functionality at this point, so make sure the correct coordinates are used.
 
-Also, the author uses the European style of formatting dates for the customer reviews, day, month, year. You should adjust this to the US style: month, day, comma, year. So instead of "3 January 2017" the date on your customer review should read "January 3, 2018". 
+Also, the author uses the European style of formatting dates for the customer reviews, day, month, year. You should adjust this to the US style: month, day, comma, year. So instead of "3 January 2017" the date on your customer review should read "January 3, 2018".
 
 **Ch 7 Readme Questions**
 
@@ -95,13 +97,13 @@ Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 Notes:
 
 * Listing 6.1 should be named `index.js` rather than `locations.js`.
-* In section 6.2.2, you need to create placeholders for *all* of the controller functions called by your routes. Only one is shown explicitly. 
+* In section 6.2.2, you need to create placeholders for *all* of the controller functions called by your routes. Only one is shown explicitly.
 * The current edition of the book does not include a definition for `sendJsonResponse`, although at the time I'm going through it, some references to this function remain in the listing code, for example in Listing 6.3. Instead, use the `res.status().json()` format discussed in the text and shown elsewhere in the listing. The second and third arguments to `sendJsonResponse` are the arguments to `status` and `json`, respectively.
 * The `x-www-form-urlencoded` POST form data in your request from Postman described in section 6.4.1 (Figure 6.11) needs to be input by you in Postman and submitted *to* the server. Look closely at that figure. Also, the Postman form is *very* sensitive to whitespace. Make sure that your key values such as name, address etc do not have any trailing spaces.
 
 **Ch 6 Things to change**
 
-For your own Chapter 6 work, your proximity-based searches should be based on your home or university location. Test to make sure that locations are or aren't showing up as they should, based on the distance value in meters. 
+For your own Chapter 6 work, your proximity-based searches should be based on your home or university location. Test to make sure that locations are or aren't showing up as they should, based on the distance value in meters.
 
 **Ch 6 Readme Questions**
 
@@ -121,15 +123,15 @@ For Chapter 5, you will be adding some locations to a database. You'll use these
 
 Notes:
 
-* The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. If you have trouble running these with Git Bash, run them through the native Windows command prompt. You can use a separate Git Bash terminal to do other things. 
-* At the time I am working through this, the code used in `db.js` for opening the database connection yields a deprecation warning in the command line with the latest mongoose. You can safely ignore this warning for now, or you can follow the link to find out how to change your code to get rid of the warning. 
+* The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. If you have trouble running these with Git Bash, run them through the native Windows command prompt. You can use a separate Git Bash terminal to do other things.
+* At the time I am working through this, the code used in `db.js` for opening the database connection yields a deprecation warning in the command line with the latest mongoose. You can safely ignore this warning for now, or you can follow the link to find out how to change your code to get rid of the warning.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robo 3T](https://robomongo.org/) GUI-based MongoDB client which will allow you to view, edit, add, and delete documents from your local MongoDB database without needing to use the `mongo` command line client.
-* For setting up your mLab database for use with your Heroku database, you have two choices. **Choose one method or the other, but not both**. The first is the simplest, but it requires use of a credit card (it is free of charge, but you need to submit credit card info to Heroku). This method, the Heroku add-on method, is described in the main text of the book. The sidebar (gray area) describes setting up your mLab database directly through the mLab website, which does not require a credit card. 
+* For setting up your mLab database for use with your Heroku database, you have two choices. **Choose one method or the other, but not both**. The first is the simplest, but it requires use of a credit card (it is free of charge, but you need to submit credit card info to Heroku). This method, the Heroku add-on method, is described in the main text of the book. The sidebar (gray area) describes setting up your mLab database directly through the mLab website, which does not require a credit card.
 * Read the section on the database URI closely. The MONGODB_URI contains a username and a password for the *database*. This is not related to your account username and password for mLab (or Heroku).
 
 **Ch 5 Things to change**
 
-For your own Chapter 5 work, add at least one location to the database which is nearby to the university, and at least one location that is further away from the university, so that you can test that the distance search is working correctly. 
+For your own Chapter 5 work, add at least one location to the database which is nearby to the university, and at least one location that is further away from the university, so that you can test that the distance search is working correctly.
 
 **Ch 5 Readme Questions**
 
@@ -166,17 +168,17 @@ Notes:
     ```
 
 * This doesn't seem to be mentioned outright in the text, but you'll need to add the appropriate styles to your `style.css` file in order to get the app looking right. You can find the styles in my `style.css`. My own css is slightly modified from what I'm currently seeing in the author's GitHub.
-* Finishing hooking up the views to the controllers as described in Appendix C is part of the Chapter 4 assignment. Make sure this is also done. 
-* In Appendix C, the src value for the Google Maps element is enclosed in back-ticks. These are not the same as single quotes, so be careful. 
+* Finishing hooking up the views to the controllers as described in Appendix C is part of the Chapter 4 assignment. Make sure this is also done.
+* In Appendix C, the src value for the Google Maps element is enclosed in back-ticks. These are not the same as single quotes, so be careful.
 * [As of June 22, 2016 GoogleMaps requires an API key to embed](https://maps-apis.googleblog.com/2016/06/building-for-scale-updates-to-google.html). This means that your application may not display the generated map image correctly, using only the URL from the book. To resolve this, you will need to get an API key from Google. You can do that [here](https://developers.google.com/maps/documentation/javascript/get-api-key?utm_source=geoblog&utm_medium=social&utm_campaign=2016-geo-na-website-gmedia-blogs-us-blogPost&utm_content=TBC) (click "Get A Key"). Follow the steps to generate a key. They key will look like a string of random letters and numbers. Include this in your link as part of the query string in the form `&key=<your_key>`, something like this:
 
         http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&key=AIzxSyBqUF6InQDrBA8940pAjAZkG23qPMki-hE
 
     You may also need to enable the Google Static Maps API. To do this, go to the API Manager Dashboard and click on "Enable API" at the top of the screen. Find Google Static Maps API (you may need to click "More" under the Maps APIs), view the API page and click "Enable". Your application should display the graphic correctly.
-    
+
 **Ch 4 Things to change**
 
-For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below. 
+For your own Chapter 4 work, you should replace the author's *Starcups* cafe with an existing nearby cafe. I've used Oppenheimer cafe. You should be sure to also replace the latitude and longitude in the controller, so that by the end of the chapter, the correct location is displayed on your webpage's map, as shown in my screenshot below.
 
 **Ch 4 Readme Questions**
 
