@@ -59,7 +59,7 @@ Notes:
 
     **Don't** do this. If you do, you may wind up with an error when you try to create the new angular application that reads: `You cannot use the new command inside an angular-cli project.` If this happens, you'll need to remove the dev dependency from your `package.json` file.
 
-* I've run into problems with the current version of Angular's `Http` module, which make me think that the book's code is deprecated. As this is my own introduction to Angular 2+, I'm going to set this aside until the book has been updated.
+* At the time of this reading, the book does not seem to mention the need to import the HttpModule in `app.module.ts`. Failing to do so results in a provider error for Http. To that file, add `import { HttpModule } from '@angular/http';` with the imports at the top of the file, and then add `HttpModule` to the `imports` array in the decorator.  
 
 # <a name="ch7"></a>Chapter 7
 
