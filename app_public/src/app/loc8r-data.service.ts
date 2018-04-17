@@ -7,14 +7,16 @@ import { Location } from './home-list/home-list.component';
 export class Loc8rDataService {
 
   constructor(private http: Http) { }
-  
-  private apiBaseUrl = 'http://localhost:3000/api';
-  
+
+  private apiBaseUrl = 'http://localhost:3000/api/';
+
   public getLocations(): Promise<Location[]> {
-    const lng: number = -122.500545;
-    const lat: number = 47.335534;
+    const lng: number = -122.4815;
+    const lat: number = 47.2618;
     const maxDistance: number = 20000;
-    const url: string = `${this.apiBaseUrl}/locations?lng=${lng}&lat=${lat}&maxDistance=${maxDistance}`;
+    const url: string =
+      `${this.apiBaseUrl}/locations?lng=${lng}&lat=${lat}&maxDistance=${maxDistance}
+      `;
     return this.http
       .get(url)
       .toPromise()
@@ -26,5 +28,4 @@ export class Loc8rDataService {
     console.error('Something has gone wrong', error);
     return Promise.reject(error.message || error);
   }
-  
 }

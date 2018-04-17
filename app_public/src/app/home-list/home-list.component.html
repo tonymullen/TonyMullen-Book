@@ -1,7 +1,9 @@
-<div class="card card-primary" *ngFor="let location of locations">
-  <div class="card-block"><h4>
-    <a href="/location/{{location._id}}">
-      {{location.name}}</a>
+<div *ngFor="let location of locations" class="card card-primary">
+  <div class="card-block">
+    <h4>
+      <a href="/location/{{location._id}}">
+        {{location.name}}
+      </a>
       <small>&nbsp;
         <i class="fa fa-star{{ location.rating < 1 ? '-o' : '' }}"></i>
         <i class="fa fa-star{{ location.rating < 2 ? '-o' : '' }}"></i>
@@ -9,13 +11,17 @@
         <i class="fa fa-star{{ location.rating < 4 ? '-o' : '' }}"></i>
         <i class="fa fa-star{{ location.rating < 5 ? '-o' : '' }}"></i>
       </small>
-      <span class="badge badge-pill badge-default float-right">{{location.distance | distance}}</span>
+      <span class="badge badge-pill badge-default float-right">
+        {{ location.distance | distance }}
+      </span>
     </h4>
     <p class="address">
       {{location.address}}
     </p>
     <div class="facilities">
-      <span *ngFor="let facility of location.facilities" class="badge badge-warning">{{facility}}</span>
+      <span *ngFor="let facility of location.facilities" class="badge badge-warning">
+        {{facility}}
+      </span>
     </div>
   </div>
 </div>

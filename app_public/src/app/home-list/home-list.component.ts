@@ -19,9 +19,9 @@ export class Location {
 export class HomeListComponent implements OnInit {
 
   constructor(private loc8rDataService: Loc8rDataService) { }
-  
+
   locations: Location[];
-  
+
   private getLocations(): void {
     this.loc8rDataService
       .getLocations()
