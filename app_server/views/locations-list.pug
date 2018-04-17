@@ -9,18 +9,25 @@ block content
   .row
     .col-12.col-md-8
       .error= message
-      each location in locations
-        .card.card-primary
-          .card-block
-            h4
-              a(href=`/location/${location._id}`)= location.name
-              small &nbsp;
-                +outputRating(location.rating)
-              span.badge.badge-pill.badge-default.float-right= location.distance
-            p.address= location.addresss
-            .facilities
-              each facility in location.facilities
-                span.badge.badge-warning= facility
+      
+      app-home-list Loading
+      //- each location in locations
+      //-   .card.card-primary
+      //-     .card-block
+      //-       h4
+      //-         a(href=`/location/${location._id}`)= location.name
+      //-         small &nbsp;
+      //-           +outputRating(location.rating)
+      //-         span.badge.badge-pill.badge-default.float-right= location.distance
+      //-       p.address= location.addresss
+      //-       .facilities
+      //-         each facility in location.facilities
+      //-           span.badge.badge-warning= facility
 
     .col-12.col-md-4
       p.lead= sidebar
+
+block scripts
+  script(src='/build/inline.318b50c57b4eba3d437b.bundle.js')
+  script(src='/build/polyfills.b6b2cd0d4c472ac3ac12.bundle.js')
+  script(src='/build/main.650553987314b4aab599.bundle.js')
