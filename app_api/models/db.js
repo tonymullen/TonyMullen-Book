@@ -30,7 +30,7 @@ process.once('SIGUSR2', () => {
 });
 
 process.on('SIGINT', () => {
-  gracefulShutdown('app temrination', () => {
+  gracefulShutdown('app termination', () => {
     process.exit(0);
   })
 });
