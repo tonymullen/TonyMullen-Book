@@ -8,6 +8,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DistancePipe } from './distance.pipe';
 import { FrameworkComponent } from './framework/framework.component';
 import { AboutComponent } from './about/about.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AboutComponent } from './about/about.component';
     HomepageComponent,
     DistancePipe,
     FrameworkComponent,
-    AboutComponent
+    AboutComponent,
+    PageHeaderComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
