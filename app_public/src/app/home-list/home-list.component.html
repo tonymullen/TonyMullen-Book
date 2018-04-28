@@ -5,6 +5,8 @@
       <a href="/location/{{location._id}}">
         {{location.name}}
       </a>
+      <div [innerHTML]="location.rating | ratingStars"></div>
+      <!--
       <small>&nbsp;
         <i class="fa fa-star{{ location.rating < 1 ? '-o' : '' }}"></i>
         <i class="fa fa-star{{ location.rating < 2 ? '-o' : '' }}"></i>
@@ -12,6 +14,7 @@
         <i class="fa fa-star{{ location.rating < 4 ? '-o' : '' }}"></i>
         <i class="fa fa-star{{ location.rating < 5 ? '-o' : '' }}"></i>
       </small>
+    -->
       <span class="badge badge-pill badge-default float-right">
         {{ location.distance | distance }}
       </span>

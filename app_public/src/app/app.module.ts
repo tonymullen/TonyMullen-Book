@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
+import { RatingStarsPipe } from './rating-stars.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
     AboutComponent,
     PageHeaderComponent,
     SidebarComponent,
-    HtmlLineBreaksPipe
+    HtmlLineBreaksPipe,
+    RatingStarsPipe
   ],
   imports: [
     BrowserModule,
