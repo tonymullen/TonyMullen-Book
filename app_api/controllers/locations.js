@@ -5,13 +5,14 @@ const Loc = mongoose.model('Location');
 const locationsListByDistance = function(req, res) {
   const lng = parseFloat(req.query.lng);
   const lat = parseFloat(req.query.lat);
+  const maxDist = parseFloat(req.query.maxDistance);
   const point = {
     type: "Point",
     coordinates: [lng, lat]
   };
   const geoOptions = {
     spherical: true,
-    maxDistance: 20000,
+    maxDistance: maxDist,
     num: 10
   };
   if ((!lng && lng !== 0) || (!lat && lat !== 0)) {
@@ -177,5 +178,5 @@ module.exports = {
   locationsCreate,
   locationsReadOne,
   locationsUpdateOne,
-  locationsDeleteOne 
+  locationsDeleteOne
 }
