@@ -1,3 +1,7 @@
+// My first try at making my own rating stars used a pipe.
+// The author's expected approach is to use a component. I'm
+// leaving the pipe in for reference.
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -13,7 +17,6 @@ export class RatingStarsPipe implements PipeTransform {
     }
 
     starsHtml += '</small>';
-    console.log(starsHtml);
     return starsHtml
   }
 

@@ -12,6 +12,9 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { RatingStarsPipe } from './rating-stars.pipe';
+import { LocationDetailsComponent } from './location-details/location-details.component';
+import { DetailsPageComponent } from './details-page/details-page.component';
+import { RatingStarsComponent } from './rating-stars/rating-stars.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { RatingStarsPipe } from './rating-stars.pipe';
     PageHeaderComponent,
     SidebarComponent,
     HtmlLineBreaksPipe,
-    RatingStarsPipe
+    RatingStarsPipe,
+    LocationDetailsComponent,
+    DetailsPageComponent,
+    RatingStarsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,10 @@ import { RatingStarsPipe } from './rating-stars.pipe';
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'location/:locationId',
+        component: DetailsPageComponent
       }
     ])
   ],

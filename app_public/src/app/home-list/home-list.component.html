@@ -2,19 +2,14 @@
 <div *ngFor="let location of locations" class="card card-primary">
   <div class="card-block">
     <h4>
-      <a href="/location/{{location._id}}">
+      <a routerLink="/location/{{location._id}}">
         {{location.name}}
       </a>
+      <!-- My first try at making rating-stars was to use a pipe.
+      In the details page I switch to the expected solution of using
+      a component, but I'm leaving the pipe in for reference.
+      Either way works. -->
       <div [innerHTML]="location.rating | ratingStars"></div>
-      <!--
-      <small>&nbsp;
-        <i class="fa fa-star{{ location.rating < 1 ? '-o' : '' }}"></i>
-        <i class="fa fa-star{{ location.rating < 2 ? '-o' : '' }}"></i>
-        <i class="fa fa-star{{ location.rating < 3 ? '-o' : '' }}"></i>
-        <i class="fa fa-star{{ location.rating < 4 ? '-o' : '' }}"></i>
-        <i class="fa fa-star{{ location.rating < 5 ? '-o' : '' }}"></i>
-      </small>
-    -->
       <span class="badge badge-pill badge-default float-right">
         {{ location.distance | distance }}
       </span>
