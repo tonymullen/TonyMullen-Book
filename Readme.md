@@ -41,6 +41,16 @@ Always ensure that your code is working before committing it and before adding m
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
+# <a name="ch9"></a>Chapter 10
+
+**Building a Single Page Application with Angular: The next level**
+
+Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
+
+Notes:
+
+* Listing 10.9 assumes that the `rating-stars` element has been implemented as a **component**. If you implemented this in another way (for example as a pipe) the code will not work as shown. Either approach is fine as long as the view and the implementation work properly together.
+
 # <a name="ch9"></a>Chapter 9
 
 **Building a single-page web application with Angular**
