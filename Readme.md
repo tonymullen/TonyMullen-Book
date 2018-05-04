@@ -51,6 +51,26 @@ Notes:
 
 * Listing 10.9 assumes that the `rating-stars` element has been implemented as a **component**. If you implemented this in another way (for example as a pipe) the code will not work as shown. Either approach is fine as long as the view and the implementation work properly together.
 
+* I experienced an error in saving new reviews, which seems to be the result of a deprecation in Mongoose. The easiest way around this is to modify the `_doAddReview` function in `app_api/controllers/reviews.js`. Change
+        location.reviews.push({
+          author: req.body.author,
+          rating: req.body.rating,
+          reviewText: req.body.reviewText
+        });
+
+    to
+        location.reviews = location.reviews.concat(
+          [{
+            author: req.body.author,
+            rating: req.body.rating,
+            reviewText: req.body.reviewText
+          }]
+        );
+
+**Ch 10 Things to change**
+
+The author uses the European style for dates, e.g. **23 February 2018**. Change the arguments in the `date` pipe to output the American style, like **February 23, 2018**.
+
 # <a name="ch9"></a>Chapter 9
 
 **Building a single-page web application with Angular**
@@ -73,7 +93,7 @@ Notes:
 
 * When creating the new application, don't use the `-st` option. We'll let Angular create some unit tests in order to study how they are written.
 
-* When you run the Angular command line application, you may get a warning like the following;
+* When you run the Angular command line application, you may get a warning like the following:
         Unable to find "@angular/cli" in devDependencies.
 
         Please take the following steps to avoid issues:
@@ -95,6 +115,7 @@ Notes:
 * In section 7.5.1, the text refers to `_doAddReview` as being found in the `locations.js` file. It is actually in the `reviews.js` file.  
 * The necessary ID tag for jQuery browser validation described in section 7.5.3 is not present in the author's code online and it's not shown how to put it into the view. To make this work add the `#addReview` tag to the form element in your Pug view like this:
         form#addReview(action="", method="post", role="form")
+* If you experience issues with saving new reviews, see my note above in Chapter 10 notes about altering the review adding API.
 
 **Ch 7 Things to change**
 

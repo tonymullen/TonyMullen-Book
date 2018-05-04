@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { HomeListComponent } from './home-list/home-list.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -15,6 +16,7 @@ import { RatingStarsPipe } from './rating-stars.pipe';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { RatingStarsComponent } from './rating-stars/rating-stars.component';
+import { MostRecentFirstPipe } from './most-recent-first.pipe';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,13 @@ import { RatingStarsComponent } from './rating-stars/rating-stars.component';
     RatingStarsPipe,
     LocationDetailsComponent,
     DetailsPageComponent,
-    RatingStarsComponent
+    RatingStarsComponent,
+    MostRecentFirstPipe
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',

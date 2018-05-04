@@ -70,7 +70,7 @@ const reviewsReadOne = function(req, res) {
           res
             .status(404)
             .json({
-              "message": "no reviews faound"
+              "message": "no reviews found"
             });
           }
         }
@@ -218,11 +218,18 @@ const _doAddReview = function(req, res, location) {
         "message": "locationid not found"
       });
   } else {
-    location.reviews.push({
-      author: req.body.author,
-      rating: req.body.rating,
-      reviewText: req.body.reviewText
-    });
+    // location.reviews.push({
+    //   author: req.body.author,
+    //   rating: req.body.rating,
+    //   reviewText: req.body.reviewText
+    // });
+    location.reviews = location.reviews.concat(
+      [{
+        author: req.body.author,
+        rating: req.body.rating,
+        reviewText: req.body.reviewText
+      }]
+    ); //this uses $set so no problems
     location.save((err, location) => {
       if (err) {
         res
@@ -274,5 +281,5 @@ module.exports = {
   reviewsCreate,
   reviewsReadOne,
   reviewsUpdateOne,
-  reviewsDeleteOne 
+  reviewsDeleteOne
 }
