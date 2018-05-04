@@ -72,6 +72,8 @@ Notes:
 
 The author uses the European style for dates, e.g. **23 February 2018**. Change the arguments in the `date` pipe to output the American style, like **February 23, 2018**.
 
+![ch10](/readme_images/ch10-1.png)
+
 # <a name="ch9"></a>Chapter 9
 
 **Building a single-page web application with Angular**
