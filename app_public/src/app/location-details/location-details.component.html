@@ -18,10 +18,12 @@
     <div class="card card-primary">
       <div class="card-block">
         <h2 class="card-title">Facilities</h2>
-        <span *ngFor="let facility of location.facilities" class="badge badge-warning">
-            <i class="fa fa-check"></i>
-            {{facility}}&nbsp;
-        </span>
+        <div class="facilities">
+          <span *ngFor="let facility of location.facilities" class="badge badge-warning">
+              <i class="fa fa-check"></i>
+              {{facility}}
+          </span>
+        </div>
       </div>
     </div>
   </div>
