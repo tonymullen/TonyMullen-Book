@@ -8,7 +8,9 @@ export class Loc8rDataService {
 
   constructor(private http: Http) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api/';
+  //private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = 'https://getting-mean2e.herokuapp.com/api';
+
 
   public getLocations(lat: number, lng: number): Promise<Location[]> {
     const maxDistance: number = 20000;
