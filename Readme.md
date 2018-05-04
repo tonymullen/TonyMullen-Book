@@ -52,13 +52,15 @@ Notes:
 * Listing 10.9 assumes that the `rating-stars` element has been implemented as a **component**. If you implemented this in another way (for example as a pipe) the code will not work as shown. Either approach is fine as long as the view and the implementation work properly together.
 
 * I experienced an error in saving new reviews, which seems to be the result of a deprecation in Mongoose. The easiest way around this is to modify the `_doAddReview` function in `app_api/controllers/reviews.js`. Change
+
         location.reviews.push({
           author: req.body.author,
           rating: req.body.rating,
           reviewText: req.body.reviewText
         });
 
-    to
+    to:
+
         location.reviews = location.reviews.concat(
           [{
             author: req.body.author,
