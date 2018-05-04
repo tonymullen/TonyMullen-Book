@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { HomeListComponent } from './home-list/home-list.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -38,20 +39,7 @@ import { MostRecentFirstPipe } from './most-recent-first.pipe';
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: HomepageComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      },
-      {
-        path: 'location/:locationId',
-        component: DetailsPageComponent
-      }
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [FrameworkComponent]

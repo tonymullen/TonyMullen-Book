@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Location } from './home-list/home-list.component';
+import { Location, Review } from './location';
 
 @Injectable()
 export class Loc8rDataService {
@@ -32,12 +32,12 @@ export class Loc8rDataService {
       .catch(this.handleError);
   }
 
-  public addReviewByLocationId(locationId: string, formData: any): Promise<any> {
+  public addReviewByLocationId(locationId: string, formData: Review): Promise<Review> {
     const url: string = `${this.apiBaseUrl}locations/${locationId}/reviews`;
     return this.http
       .post(url, formData)
       .toPromise()
-      .then(response => response.json() as any)
+      .then(response => response.json() as Review)
       .catch(this.handleError)
   }
 
