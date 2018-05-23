@@ -166,11 +166,12 @@ For Chapter 5, you will be adding some locations to a database. You'll use these
 
 Notes:
 
+* The latest version of MongoDB (v4.x) has done away with the `geoNear()` function. At the time of this writing (the 2nd edition of the book is not yet published) the workaround is to install MongoDB version 3.x. 
 * The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. If you have trouble running these with Git Bash, run them through the native Windows command prompt. You can use a separate Git Bash terminal to do other things.
 * At the time I am working through this, the code used in `db.js` for opening the database connection yields a deprecation warning in the command line with the latest mongoose. You can safely ignore this warning for now, or you can follow the link to find out how to change your code to get rid of the warning.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robo 3T](https://robomongo.org/) GUI-based MongoDB client which will allow you to view, edit, add, and delete documents from your local MongoDB database without needing to use the `mongo` command line client.
 * For setting up your mLab database for use with your Heroku database, you have two choices. **Choose one method or the other, but not both**. The first is the simplest, but it requires use of a credit card (it is free of charge, but you need to submit credit card info to Heroku). This method, the Heroku add-on method, is described in the main text of the book. The sidebar (gray area) describes setting up your mLab database directly through the mLab website, which does not require a credit card.
-* Read the section on the database URI closely. The MONGODB_URI contains a username and a password for the *database*. This is not related to your account username and password for mLab (or Heroku).
+* Read the section on the database URI closely. The MLAB_URI contains a username and a password for the *database*. This is not related to your account username and password for mLab (or Heroku).
 
 **Ch 5 Things to change**
 
