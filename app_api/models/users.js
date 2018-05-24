@@ -17,12 +17,16 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.setPassword = function(password) {
+  console.log("setting password")
   this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pdkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+  // Digest argument, e.g. 'sha512' is required by pbkdf2Sync
+  this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
+  console.log("Set a password");
 };
 
 userSchema.methods.validPassword = function(password) {
-  const hash = crypto.pdkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+  // Digest argument, e.g. 'sha512' is required by pbkdf2Sync
+  const hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64,'sha512').toString('hex');
   return this.hash === hash;
 };
 
