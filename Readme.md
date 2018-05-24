@@ -41,7 +41,17 @@ Always ensure that your code is working before committing it and before adding m
 
 This Readme has been modified throughout the process of implementing the project, so please always refer to the latest version of the Readme, rather than tagged chapter releases. The notes for the 2nd Edition of the book are based upon a work-in-progress copy of the book, so issues described in the notes may have been fixed by the time you read the book. Please let me know if the notes need updating.  
 
-# <a name="ch9"></a>Chapter 10
+# <a name="ch11"></a>Chapter 11
+
+**Authenticating users, managing sessions, & securing APIs**
+
+Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
+
+Notes:
+
+* Server side is the same in 1st edition, except that `pbkdf2Sync` calls require a digest argument specifying the HMAC digest (hashing) algorithm to be used, e.g. 'sha512'. If this argument isn't provided, as in the text, an error will result. 
+
+# <a name="ch10"></a>Chapter 10
 
 **Building a Single Page Application with Angular: The next level**
 
@@ -166,7 +176,7 @@ For Chapter 5, you will be adding some locations to a database. You'll use these
 
 Notes:
 
-* The latest version of MongoDB (v4.x) has done away with the `geoNear()` function. At the time of this writing (the 2nd edition of the book is not yet published) the workaround is to install MongoDB version 3.x. 
+* The latest version of MongoDB (v4.x) has done away with the `geoNear()` function. At the time of this writing (the 2nd edition of the book is not yet published) the workaround is to install MongoDB version 3.x.
 * The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. If you have trouble running these with Git Bash, run them through the native Windows command prompt. You can use a separate Git Bash terminal to do other things.
 * At the time I am working through this, the code used in `db.js` for opening the database connection yields a deprecation warning in the command line with the latest mongoose. You can safely ignore this warning for now, or you can follow the link to find out how to change your code to get rid of the warning.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robo 3T](https://robomongo.org/) GUI-based MongoDB client which will allow you to view, edit, add, and delete documents from your local MongoDB database without needing to use the `mongo` command line client.
