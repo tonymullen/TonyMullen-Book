@@ -94,14 +94,17 @@ Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 Notes:
 
 * The book and my code use the Angular CLI version 1.7.4. To install this, use
+
         npm install -g @angular/cli@1.7.4
 
     Note the `@1.7.4` at the end. If you've already installed a more recent version you should probably uninstall that with
+
         npm uninstall -g @angular/cli
 
     and then install version 1.7.4. You can find out which version you have installed by running `ng --version`.
 * When creating the new application, don't use the `-st` option. We'll let Angular create some unit tests in order to study how they are written.
 * When you run the Angular command line application, you may get a warning like the following:
+
         Unable to find "@angular/cli" in devDependencies.
 
         Please take the following steps to avoid issues:
