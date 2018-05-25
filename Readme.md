@@ -93,6 +93,13 @@ Heroku link: [Live app](https://getting-mean2e.herokuapp.com/)
 
 Notes:
 
+* The book and my code use the Angular CLI version 1.7.4. To install this, use
+        npm install -g @angular/cli@1.7.4
+
+    Note the `@1.7.4` at the end. If you've already installed a more recent version you should probably uninstall that with
+        npm uninstall -g @angular/cli
+
+    and then install version 1.7.4. You can find out which version you have installed by running `ng --version`.
 * When creating the new application, don't use the `-st` option. We'll let Angular create some unit tests in order to study how they are written.
 * When you run the Angular command line application, you may get a warning like the following:
         Unable to find "@angular/cli" in devDependencies.
@@ -166,7 +173,7 @@ For Chapter 5, you will be adding some locations to a database. You'll use these
 
 Notes:
 
-* The latest version of MongoDB (v4.x) has done away with the `geoNear()` function. At the time of this writing (the 2nd edition of the book is not yet published) the workaround is to install MongoDB version 3.x. 
+* The latest version of MongoDB (v4.x) has done away with the `geoNear()` function. At the time of this writing (the 2nd edition of the book is not yet published) the workaround is to install MongoDB version 3.x.
 * The `mongo` client and other Mongo related commands (e.g. `mongod` and `mongodump`) sometimes misbehave when run from Git Bash on Windows. If you have trouble running these with Git Bash, run them through the native Windows command prompt. You can use a separate Git Bash terminal to do other things.
 * At the time I am working through this, the code used in `db.js` for opening the database connection yields a deprecation warning in the command line with the latest mongoose. You can safely ignore this warning for now, or you can follow the link to find out how to change your code to get rid of the warning.
 * Follow the instructions to use Mongo from the command line. However, for future work with the database, I strongly recommend downloading the [Robo 3T](https://robomongo.org/) GUI-based MongoDB client which will allow you to view, edit, add, and delete documents from your local MongoDB database without needing to use the `mongo` command line client.
