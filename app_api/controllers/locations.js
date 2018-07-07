@@ -1,94 +1,12 @@
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Location');
 
-
-const locationsListByDistance = function(req, res) {
-  const lng = parseFloat(req.query.lng);
-  const lat = parseFloat(req.query.lat);
-  const maxDist = parseFloat(req.query.maxDistance);
-  const point = {
-    type: "Point",
-    coordinates: [lng, lat]
-  };
-  const geoOptions = {
-    spherical: true,
-    maxDistance: maxDist,
-    num: 10
-  };
-  if ((!lng && lng !== 0) || (!lat && lat !== 0)) {
-    res
-      .status(404)
-      .json({
-        "message": "lng and lat query parameters are required"
-      });
-      return;
-  }
-  // Loc.aggregate will work in Mongoose 5
-  Loc.aggregate(
-    [
-        {
-            '$geoNear': {
-                near: point,
-                spherical: true,
-                distanceField: 'dist.calculated',
-                maxDistance: maxDistance,
-                num: 10
-            }
-        }
-    ],
-    function(err, results) {
-      let locations = [];
-      if(err) {
-        res
-          .status(404)
-          .json(err)
-      } else {
-        results.forEach((doc) => {
-          locations.push({
-            distance: (doc.dist.calculated),
-            name: doc.name,
-            address: doc.address,
-            rating: doc.rating,
-            facilities: doc.facilities,
-            _id: doc._id
-          });
-        });
-        res
-          .status(200)
-          .json(locations);
-      }
-    });
-  /*
-  Loc.geoNear(point, geoOptions, (err, results, stats) => {
-    let locations = [];
-    if (err) {
-      res
-        .status(404)
-        .json(err);
-    } else {
-      results.forEach((doc) => {
-        locations.push({
-          distance: doc.dis,
-          name: doc.obj.name,
-          address: doc.obj.address,
-          rating: doc.obj.rating,
-          facilities: doc.obj.facilities,
-          _id: doc.obj._id
-        });
-      });
-      res
-        .status(200)
-        .json(locations);
-    }
-  });*/
-};
-
-const locationsCreate = function(req, res) {
+const locationsCreate = function (req, res) {
   Loc.create({
     name: req.body.name,
     address: req.body.address,
     facilities: req.body.facilities.split(","),
-    coords: [parseFloat(req.body.lng), parseFlloat(req.body.lat)],
+    coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
     openingTimes: [{
       days: req.body.days1,
       opening: req.body.opening1,
@@ -113,7 +31,7 @@ const locationsCreate = function(req, res) {
   });
 };
 
-const locationsReadOne = function(req, res) {
+const locationsReadOne = function (req, res) {
   if (req.params && req.params.locationid) {
     Loc
       .findById(req.params.locationid)
@@ -127,7 +45,7 @@ const locationsReadOne = function(req, res) {
             return;
         } else if (err) {
           res
-            .status(404)
+            .status(400)
             .json(err);
           return;
         }
@@ -136,20 +54,20 @@ const locationsReadOne = function(req, res) {
           .json(location);
       });
   } else {
-    res
-      .status(404)
-      .json({
-        "message": "No locationid in request"
-      })
+      res
+        .status(404)
+        .json({
+          "message": "No locationid in request"
+        });
   }
 };
 
-const locationsUpdateOne = function(req, res) {
+const locationsUpdateOne = function (req, res) {
   if (!req.params.locationid) {
     res
       .status(404)
       .json({
-        "message": "not found, locationid is required"
+        "message": "Not found, locationid is required"
       });
     return;
   }
@@ -192,7 +110,7 @@ const locationsUpdateOne = function(req, res) {
         if (err) {
           res
             .status(404)
-            .json(err)
+            .json(err);
         } else {
           res
             .status(200)
@@ -203,11 +121,101 @@ const locationsUpdateOne = function(req, res) {
   );
 };
 
-const locationsDeleteOne = function(req, res) {
-  res
-    .status(200)
-    .json({"status" : "success"});
+const locationsDeleteOne = function (req, res) {
+  const locationid = req.params.locationid;
+  if (locationid) {
+    Loc
+      .findByIdAndRemove(locationid)
+      .exec((err, location) => {
+        if (err) {
+          res
+            .status(404)
+            .json(err);
+          return;
+        }
+        res
+          .status(204)
+          .json(null);
+      });
+  } else {
+    res
+      .status(404)
+      .json({
+        "message": "No locationid"
+      });
+  }
 };
+
+const locationsListByDistance = function (req, res) {
+  const lng = parseFloat(req.query.lng);
+  const lat = parseFloat(req.query.lat);
+  const maxDistance = parseFloat(req.query.maxDistance)
+  const point = {
+    type: "Point",
+    coordinates: [lng, lat]
+  };
+  if ((!lng && lng !== 0) || (!lat && lat !== 0))  {
+    res
+      .status(404)
+      .json({
+        "message": "lng and lat query parameters are required"
+      });
+    return;
+  }
+
+  Loc.aggregate(
+        [
+            {
+                '$geoNear': {
+                    near: point,
+                    spherical: true,
+                    distanceField: 'dist.calculated',
+                    maxDistance: maxDistance,
+                    num: 10
+                }
+            }
+        ],
+        function(err, results) {
+          let locations = [];
+          if(err) {
+            res
+              .status(404)
+              .json(err)
+          } else {
+            results.forEach((doc) => {
+              locations.push({
+                distance: (doc.dist.calculated),
+                name: doc.name,
+                address: doc.address,
+                rating: doc.rating,
+                facilities: doc.facilities,
+                _id: doc._id
+              });
+            });
+            res
+              .status(200)
+              .json(locations);
+          }
+        });
+};
+  /*
+  Loc.geoNear(point, geoOptions, (err, results, stats) => {
+    let locations = [];
+    results.forEach((doc) => {
+      locations.push({
+        distance: (doc.dis),
+        name: doc.obj.name,
+        address: doc.obj.address,
+        rating: doc.obj.rating,
+        facilities: doc.obj.facilities,
+        _id: doc.obj._id
+      });
+    });
+    res
+      .status(200)
+      .json(locations);
+  });*/
+
 
 module.exports = {
   locationsListByDistance,
@@ -215,4 +223,4 @@ module.exports = {
   locationsReadOne,
   locationsUpdateOne,
   locationsDeleteOne
-}
+};
