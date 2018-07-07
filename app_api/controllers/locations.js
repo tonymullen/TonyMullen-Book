@@ -23,6 +23,42 @@ const locationsListByDistance = function(req, res) {
       });
       return;
   }
+  // Loc.aggregate will work in Mongoose 5
+  Loc.aggregate(
+    [
+        {
+            '$geoNear': {
+                near: point,
+                spherical: true,
+                distanceField: 'dist.calculated',
+                maxDistance: maxDistance,
+                num: 10
+            }
+        }
+    ],
+    function(err, results) {
+      let locations = [];
+      if(err) {
+        res
+          .status(404)
+          .json(err)
+      } else {
+        results.forEach((doc) => {
+          locations.push({
+            distance: (doc.dist.calculated),
+            name: doc.name,
+            address: doc.address,
+            rating: doc.rating,
+            facilities: doc.facilities,
+            _id: doc._id
+          });
+        });
+        res
+          .status(200)
+          .json(locations);
+      }
+    });
+  /*
   Loc.geoNear(point, geoOptions, (err, results, stats) => {
     let locations = [];
     if (err) {
@@ -44,7 +80,7 @@ const locationsListByDistance = function(req, res) {
         .status(200)
         .json(locations);
     }
-  });
+  });*/
 };
 
 const locationsCreate = function(req, res) {
