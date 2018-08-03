@@ -3,7 +3,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Loc8rDataService } from '../loc8r-data.service';
 import { Location } from '../location';
 
-import 'rxjs/add/operator/switchMap';
+import { switchMap } from 'rxjs/operators';
+//import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-details-page',
@@ -22,10 +23,13 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap
-      .switchMap((params: ParamMap) => {
+    .pipe
+      //.switchMap((params: ParamMap) => {
+      (switchMap((params: ParamMap) => {
         let id = params.get('locationId');
         return this.loc8rDataService.getLocationById(id);
       })
+    )
       .subscribe((newLocation: Location) => {
         this.newLocation = newLocation
         this.pageContent.header.title = newLocation.name;

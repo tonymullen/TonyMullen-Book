@@ -2,16 +2,13 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
-var sendJsonResponse = function(res, status, content) {
-  res.status(status);
-  res.json(content);
-}
-
 const register = function(req, res) {
   if (!req.body.name || !req.body.email || !req.body.password) {
-    sendJsonResponse(res, 400, {
-      "message": "All fields required"
-    });
+    res
+      .status(400)
+      .json({
+        "message": "All fields required"
+      });
     return;
   }
 
@@ -23,21 +20,27 @@ const register = function(req, res) {
   user.save(function(err) {
     let token;
     if (err) {
-      sendJsonResponse(res, 404, err);
+      res
+        .status(404)
+        .json(err);
     } else {
       token = user.generateJwt()
-      sendJsonResponse(res, 200, {
-        "token" : token
-      });
+      res
+        .status(200)
+        .json({
+          "token" : token
+        });
     }
   })
 }
 
 const login = function(req, res) {
   if (!req.body.email || !req.body.password) {
-    sendJsonResponse(res, 400, {
-      "message": "All fields required"
-    });
+    res
+      .status(400)
+      .json({
+        "message": "All fields required"
+      });
     return;
   }
 
@@ -45,19 +48,26 @@ const login = function(req, res) {
     let token;
 
     if (err) {
-      sendJsonResponse(res, 404, err);
+      res
+        .status(404)
+        .json(err);
       return;
     }
 
     if (user) {
       token = user.generateJwt();
-      sendJsonResponse(res, 200, {
-        "token" : token
-      });
+      res
+        .status(200)
+        .json({
+          "token" : token
+        });
     } else {
-      sendJsonResponse(res, 401, info);
+      res
+        .status(401)
+        .json(info);
     }
   })(req, res);
+
 };
 
 module.exports = {

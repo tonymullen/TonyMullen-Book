@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import 'rxjs/add/operator/toPromise';
 import { Location, Review } from './location';
+import { AuthService } from './auth.service';
+
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class Loc8rDataService {
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
+  ) { }
 
-  private apiBaseUrl = 'http://localhost:3000/api';
+  private apiBaseUrl = environment.apiUrl;
+  //private apiBaseUrl =  'http://localhost:3000/api';
   //private apiBaseUrl = 'https://getting-mean2e.herokuapp.com/api';
 
 
@@ -20,7 +28,7 @@ export class Loc8rDataService {
     return this.http
       .get(url)
       .toPromise()
-      .then(response => response.json() as Location[])
+      .then(response => response as Location[])
       .catch(this.handleError);
   }
 
@@ -30,16 +38,23 @@ export class Loc8rDataService {
     return this.http
       .get(url)
       .toPromise()
-      .then(response => response.json() as Location)
+      .then(response => response as Location)
       .catch(this.handleError);
   }
 
-  public addReviewByLocationId(locationId: string, formData: Review): Promise<Review> {
+  public addReviewByLocationId(locationId: string, formData: Review, token: string): Promise<Review> {
     const url: string = `${this.apiBaseUrl}/locations/${locationId}/reviews`;
+    
+    const options = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.auth.getToken()}`
+      })
+    };
+    
     return this.http
-      .post(url, formData)
+      .post(url, formData, options)
       .toPromise()
-      .then(response => response.json() as Review)
+      .then(response => response as Review)
       .catch(this.handleError)
   }
 

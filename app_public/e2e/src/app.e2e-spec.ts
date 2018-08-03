@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('loc8r-public App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('loc8r-public App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Welcome to loc8r-app!');
   });
 });

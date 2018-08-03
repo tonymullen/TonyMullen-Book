@@ -3,6 +3,7 @@ const Loc = mongoose.model('Location');
 const User = mongoose.model('User');
 
 const reviewsCreate = function(req, res) {
+  
   getAuthor(req, res, function (req, res, userName) {
     // require authentication
     const locationid = req.params.locationid;
@@ -31,7 +32,7 @@ const reviewsCreate = function(req, res) {
   });
 };
 
-var getAuthor = function (rea, res, callback) {
+var getAuthor = function (req, res, callback) {
   if (req.payload && req.payload.email) {
     User
       .findOne({ email : req.payload.email })
@@ -115,7 +116,6 @@ const reviewsReadOne = function(req, res) {
       });
   }
 };
-
 
 const reviewsUpdateOne = function (req, res) {
   if (!req.params.locationid || !req.params.reviewid) {
@@ -308,10 +308,9 @@ const _doSetAverageRating = function(location) {
   }
 }
 
-
 module.exports = {
   reviewsCreate,
   reviewsReadOne,
   reviewsUpdateOne,
-  reviewsDeleteOne
+  reviewsDeleteOne,
 }
