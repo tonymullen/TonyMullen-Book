@@ -1,0 +1,25 @@
+<div class="col-md-6 col-sm-8">
+  <p class="lead">Already a member? Please
+    <a href="/#login">log in</a> instead.</p>
+  <form [formGroup]="form">
+    <fieldset>
+      <legend>register</legend>
+      <div class="form-field">
+        <label>Name:</label>
+        <input name="name" formControlName="name">
+      </div>
+      <div class="form-field">
+        <label>Email:</label>
+        <input name="email" formControlName="email">
+      </div>
+      <div class="form-field">
+        <label>Password:</label>
+        <input name="password" formControlName="password" type="password">
+      </div>
+    </fieldset>
+    <div class="form-buttons">
+      <button class="button button-primary"
+      (click)="login()">Login</button>
+    </div>
+  </form>
+</div>
