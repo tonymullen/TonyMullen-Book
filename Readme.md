@@ -8,7 +8,7 @@ Your Readme.md should be structured similarly to this one. Scroll to the bottom 
 
 For each chapter, all of the following are required for full credit:
 
-* A submission on Moodle with a link to your GitHub project page **by the appropriate assignment deadline**. See the course assignment page for details on deadlines and lateness policy.
+* A submission on Blackboard with a link to your GitHub project page **by the appropriate assignment deadline**. See the course assignment page for details on deadlines and lateness policy.
 * At least 4 Git commits per chapter, with meaningful comments describing what was done
 * A tagged release representing each completed chapter (more on this below)
 * A readme entry for the chapter. Readme chapter entries should be **in descending order, with the latest on top**, and must include:
