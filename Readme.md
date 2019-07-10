@@ -253,7 +253,6 @@ Notes:
 * Installations from appendix A & Appendix B are necessary to get Ch 3 code working.
 * Any reference to any file with the extension `.jade` should be changed to `.pug`.
 * Jade/Pug files are indentation based. Wrong indentation in these files will throw your layout out of wack. Turn on Show Indent Guide and Show Invisibles in Atom (Preferences > Editor) to see the spaces in your editor. Also, refer to the author's GitHub code directly to check the indentation when the indentation is borked in the book or e-book (as I write this, Listing 3.7 in the epub version is an example of this).
-* In section 3.3.3 the line of code `var routes = require('./routes/index');` actually appears in the generated express app as `var index = require('./routes/index');`. This variable is used a few lines later and must be consistent. The author goes with `routes`. If you use `routes`, be sure to change the line `app.use('/', index);` below to `app.use('/', routes);`.
 
 **Ch 3 Readme Questions**
 
