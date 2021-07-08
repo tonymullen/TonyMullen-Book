@@ -41,9 +41,12 @@
   <div class="col-12">
     <div class="card card-primary review-card">
       <div class="card-block">
-        <button type="button" (click)="formVisible=true" class="btn btn-primary float-right">
+        <button [hidden]="!auth.loggedIn" type="button" (click)="formVisible=true" class="btn btn-primary float-right">
           Add review
         </button>
+        <span [hidden]="auth.loggedIn" class="float-right">
+          <a href="/login/?page={{ this.router.url }}">Log in</a> to post a review
+        </span>
         <h2 class="card-title">Customer reviews</h2>
 
         <div *ngIf="formVisible">
@@ -53,12 +56,14 @@
             <div *ngIf="formError" class="alert alert-danger" role="alert">
               {{ formError }}
             </div>
+            <!--
             <div class="form-group row">
               <label for="name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
                 <input [(ngModel)]="newReview.author" id="name" name="name" required="required" class="form-control">
               </div>
             </div>
+            -->
             <div class="form-group row">
               <label for="rating" class="col-sm-2 col-form-label">Rating</label>
               <div class="col-sm-10">

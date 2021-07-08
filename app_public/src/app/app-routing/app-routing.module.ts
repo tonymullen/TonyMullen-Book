@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { AboutComponent } from '../about/about.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
+
 
 const routes = [
   {
@@ -18,6 +21,14 @@ const routes = [
   {
     path: 'location/:locationId',
     component: DetailsPageComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 

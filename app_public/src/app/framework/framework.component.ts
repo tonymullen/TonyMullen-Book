@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-framework',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./framework.component.css']
 })
 export class FrameworkComponent implements OnInit {
-
-  constructor() { }
+  router: Router;
+  auth: AuthService;
+  constructor(
+    private _router: Router,
+    private _auth: AuthService
+  ) {
+    this.router = _router;
+    this.auth = _auth;
+   }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }

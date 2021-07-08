@@ -1,10 +1,16 @@
+require('dotenv').load();
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
+const passport = require('passport');
+
 require('./app_api/models/db');
+require('./app_api/config/passport');
+
 
 // const routes = require('./app_server/routes/index');
 const apiRoutes = require('./app_api/routes/index')
@@ -26,9 +32,12 @@ app.use(express.static(path.join(__dirname, 'app_public', 'build')));
 
 app.use('/api', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  console.log(res.header);
   next();
 })
+
+app.use(passport.initialize());
 
 // app.use('/', routes);
 app.use('/api', apiRoutes);
@@ -46,9 +55,22 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handler
+
+// error handlers
+// catch unauthorized errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({
+      "message" : `${err.name}: ${err.message}`
+    })
+  }
+})
+
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  // res.locals are only available to the view rendered on
+  // this request/response cycle
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

@@ -10,8 +10,42 @@
           <a routerLink="about" routerLinkActive="active" class="nav-link">About</a>
         </li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+          <li [hidden]="auth.loggedIn"><a href="/login/?page={{ this.router.url }}">Log in</a> or 
+            <a href="/register/?page={{ this.router.url }}">sign up</a></li>
+
+          <li [hidden]="!auth.loggedIn" class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">Hi, {{ auth.currentUser.username }} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+
+
+        </ul>
     </div>
-  </div>
+
+
+      <!-- <div *ngIf="!auth.loggedIn" class="btn-wrap">
+         -->
+        <!-- <div class="btn-wrap"></div>
+        <div>
+          <button  routerLink="/login" routerLinkActive="active" color="accent">
+            <i class="fa fa-sign-in"></i> Login
+          </button>
+        </div>
+        <p>or</p>
+        <div>
+          <button routerLink="/signup" routerLinkActive="active" color="accent">
+            <i class="fa fa-user-plus"></i> Signup
+          </button>
+        </div>-->
+
+      </div> 
+   
+
 </nav>
 <div class="container">
   <router-outlet></router-outlet>

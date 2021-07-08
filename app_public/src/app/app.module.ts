@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -18,8 +19,13 @@ import { LocationDetailsComponent } from './location-details/location-details.co
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { RatingStarsComponent } from './rating-stars/rating-stars.component';
 import { MostRecentFirstPipe } from './most-recent-first.pipe';
-import { RegistrationComponent } from './registration/registration.component';
+
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+import { UserService } from './user.service';
+import { AuthService } from './auth.service';
+
 
 @NgModule({
   declarations: [
@@ -36,16 +42,21 @@ import { LoginComponent } from './login/login.component';
     DetailsPageComponent,
     RatingStarsComponent,
     MostRecentFirstPipe,
-    RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UserService
+  ],
   bootstrap: [FrameworkComponent]
 })
 export class AppModule { }

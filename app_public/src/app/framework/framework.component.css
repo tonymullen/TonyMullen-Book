@@ -1,0 +1,35 @@
+.dropdown-menu  {
+    min-width: 7rem;
+    border: none;
+  }
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #444444;
+    white-space: nowrap;
+  }
+  
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #15b5c1;
+}
+
+a:hover,
+a:focus {
+  color: #ffffff;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+nav {
+  color: rgba(255, 255, 255, 0.6);
+}

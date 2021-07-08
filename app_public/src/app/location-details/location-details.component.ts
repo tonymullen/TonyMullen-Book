@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Location, Review } from '../location';
 import { Loc8rDataService } from '../loc8r-data.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-details',
@@ -10,10 +12,19 @@ import { Loc8rDataService } from '../loc8r-data.service';
   providers: [Loc8rDataService]
 })
 export class LocationDetailsComponent implements OnInit {
+  auth: AuthService;
+  router: Router;
 
   @Input() location: Location;
 
-  constructor(private loc8rDataService: Loc8rDataService) { }
+  constructor(
+    private loc8rDataService: Loc8rDataService,
+    private _auth: AuthService,
+    private _router: Router
+  ) {
+    this.auth = _auth;
+    this.router = _router;
+  }
 
   ngOnInit() {
   }
@@ -29,7 +40,8 @@ export class LocationDetailsComponent implements OnInit {
   public formError: string = '';
 
   private formIsValid(): boolean {
-    if (this.newReview.author && this.newReview.rating && this.newReview.reviewText) {
+    // if (this.newReview.author && this.newReview.rating && this.newReview.reviewText) {
+    if (this.newReview.rating && this.newReview.reviewText) {
       return true;
     } else {
       return false;
@@ -38,9 +50,10 @@ export class LocationDetailsComponent implements OnInit {
 
   public onReviewSubmit():void {
     this.formError = '';
+    console.log(this.auth);
     if (this.formIsValid()) {
       console.log(this.newReview);
-      this.loc8rDataService.addReviewByLocationId(this.location._id, this.newReview)
+      this.loc8rDataService.addReviewByLocationId(this.location._id, this.newReview, this.auth.getToken())
       .then((review: Review) => {
         console.log('Review saved', review);
         this.location.reviews.unshift(review);

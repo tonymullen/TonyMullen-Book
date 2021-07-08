@@ -1,31 +1,64 @@
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Location');
-
+const User = mongoose.model('User');
 
 const reviewsCreate = function(req, res) {
-  const locationid = req.params.locationid;
-  if (locationid) {
-    Loc
-      .findById(locationid)
-      .select('reviews')
-      .exec((err, location) => {
-        if (err) {
-          res
-            .status(400)
-            .json(err);
-        } else {
-          _doAddReview(req, res, location);
+  
+  getAuthor(req, res, function (req, res, userName) {
+    // require authentication
+    const locationid = req.params.locationid;
+    if (locationid) {
+      Loc
+        .findById(locationid)
+        .select('reviews')
+        .exec((err, location) => {
+          if (err) {
+            res
+              .status(400)
+              .json(err);
+          } else {
+            _doAddReview(req, res, location, userName);
+          }
         }
-      }
-    );
+      );
+    } else {
+      res
+        .status(404)
+        .json({
+          "message": "Not found, locationid required"
+        })
+    }
+
+  });
+};
+
+var getAuthor = function (req, res, callback) {
+  if (req.payload && req.payload.email) {
+    User
+      .findOne({ email : req.payload.email })
+      .exec(function (err, user) {
+        if (!user) {
+          res
+            .status(404)
+            .json({ "message": "User not found" });
+          return;
+        } else if (err) {
+          console.log(err);
+          res
+            .status(404)
+            .json(err);
+          return;
+        }
+        callback(req, res, user.name)
+      });
   } else {
     res
       .status(404)
-      .json({
-        "message": "Not found, locationid required"
-      })
+      .json({ "message": "User not found" });
+    return;
   }
-};
+}
+
 
 const reviewsReadOne = function(req, res) {
   if (req.params && req.params.locationid && req.params.reviewid) {
@@ -83,7 +116,6 @@ const reviewsReadOne = function(req, res) {
       });
   }
 };
-
 
 const reviewsUpdateOne = function (req, res) {
   if (!req.params.locationid || !req.params.reviewid) {
@@ -210,7 +242,7 @@ const reviewsDeleteOne = function (req, res) {
 
 // private helper functions
 
-const _doAddReview = function(req, res, location) {
+const _doAddReview = function(req, res, location, author) {
   if (!location) {
     res
       .status(404)
@@ -225,7 +257,7 @@ const _doAddReview = function(req, res, location) {
     // });
     location.reviews = location.reviews.concat(
       [{
-        author: req.body.author,
+        author: author,
         rating: req.body.rating,
         reviewText: req.body.reviewText
       }]
@@ -276,10 +308,9 @@ const _doSetAverageRating = function(location) {
   }
 }
 
-
 module.exports = {
   reviewsCreate,
   reviewsReadOne,
   reviewsUpdateOne,
-  reviewsDeleteOne
+  reviewsDeleteOne,
 }
